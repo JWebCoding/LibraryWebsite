@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:bold");
+
+#header {
+  margin: 5px;
+  grid-row: 1;
+  grid-column: 2/13;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 20px;
+}
+
+#header-title {
+  grid-column: 1;
+}
+
+#header-title > h1 {
+  color: goldenrod;
+  font-family: "Merriweather";
+  font-size: 45px;
+  margin: 0px;
+}
+
+#header-buttons {
+  grid-column: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#header-buttons > button {
+  background-color: goldenrod;
+  transition: background-color 0.5s;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 10px;
+  /* border-color: black; */
+  border-width: 3px;
+  width: 115px;
+  height: 45px;
+  margin-top: 10px;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+#header-buttons > button:hover {
+  background-color: rgb(240, 204, 112);
+}

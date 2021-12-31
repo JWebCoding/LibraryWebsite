@@ -1,0 +1,14 @@
+#footer {
+  grid-row: 13;
+  grid-column: 2/13;
+  display: flex;
+  align-content: flex-end;
+}
+
+#footerText > p {
+  margin: 2px;
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: goldenrod;
+}

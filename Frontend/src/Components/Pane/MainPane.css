@@ -1,0 +1,13 @@
+#main-pane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#pane-title > h1 {
+  font-size: 45px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  color: goldenrod;
+  font-family: "Nunito";
+}
