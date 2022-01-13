@@ -1,0 +1,40 @@
+:root{
+    --table-border:1.5px solid rgb(54, 53, 53);
+}
+
+table{
+
+    font-family: "nunito";
+    border-spacing: 0px;
+    border: var(--table-border);
+    background: rgb(224, 224, 214);
+}
+
+/* Header Styling */
+th{
+    background-color: goldenrod;
+    border: var(--table-border);
+    padding: 2px;
+    padding-top: 7px;
+    padding-left: 9px;
+    padding-right: 9px;
+    font-size: large;
+    font-weight: bolder;
+    font-family: "merriweather";
+}
+
+/* Cell Styling */
+td{
+    border: var(--table-border);
+    padding: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+td:nth-child(3){
+    text-align: center;
+}
+
+td:nth-child(5){
+    text-align: center;
+}
