@@ -1,0 +1,13 @@
+#BookViewPane{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#PaneTitle{
+  color: goldenrod;
+}
+
+#BookTable{
+
+}
