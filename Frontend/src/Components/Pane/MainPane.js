@@ -3,6 +3,7 @@ import './MainPane.css';
 import ImageBox from "../ImageBox/ImageBox";
 
 const MainPane=()=>{
+
     return(
         <React.Fragment>
         <div id="main-pane">
@@ -10,12 +11,7 @@ const MainPane=()=>{
                 <h1>Welcome!</h1>
             </div>
             <div id="pane-imagebox">
-                <ImageBox
-                    id="Image"
-                    class="Image"
-                    src="/Images/rowShot1.jpg"
-                    alt="Book Shelf"
-                />
+                <ImageBox />
             </div>
         </div>
         </React.Fragment>
