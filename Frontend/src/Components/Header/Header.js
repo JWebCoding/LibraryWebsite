@@ -10,7 +10,7 @@ const Header=(props)=>{
     return(
         <header id="header">
             <div id="header-title">
-                <h1>Weber Library</h1>
+                <button onClick={()=> switchPaneHandler('MainPane')}>Weber Library</button>
             </div>
             <div id="header-buttons">
                 <button onClick={()=> switchPaneHandler('BookViewPane')}> View Books</button>
