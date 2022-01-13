@@ -1,12 +1,2 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:200,300,400,700");
-.App {
-  text-align: center;
-  background-color: royalblue;
-  grid-row: 2;
-  grid-column: 2/13;
-}
 
-h2 {
-  color: red;
-  margin: 0px;
-}
