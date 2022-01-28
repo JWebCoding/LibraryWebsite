@@ -10,5 +10,5 @@
   margin-left: 7px;
   font-size: 14px;
   font-weight: bold;
-  color: goldenrod;
+  color: var(--accent-color);
 }

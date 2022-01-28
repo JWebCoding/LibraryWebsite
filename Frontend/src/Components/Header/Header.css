@@ -10,7 +10,7 @@
 
 
 #header-title > button{
-  color: goldenrod;
+  color: var(--accent-color);
   font-size: 45px;
   background: none;
   border: none;
@@ -23,18 +23,13 @@
 }
 
 #header-buttons > button {
-  background-color: goldenrod;
+
   transition: background-color 0.5s;
   font-size: 17px;
   font-weight: bold;
-  border-radius: 10px;
   border-width: 3px;
   width: 115px;
   height: 45px;
   margin-left: 7px;
   margin-right: 7px;
-}
-
-#header-buttons > button:hover {
-  background-color: rgb(240, 204, 112);
 }

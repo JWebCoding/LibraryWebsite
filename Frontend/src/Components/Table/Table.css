@@ -1,18 +1,14 @@
-:root{
-    --table-border:1.5px solid rgb(54, 53, 53);
-}
-
 table{
 
     font-family: "nunito";
     border-spacing: 0px;
     border: var(--table-border);
-    background: rgb(224, 224, 214);
+    background: var(--tertiary-background-color);
 }
 
 /* Header Styling */
 th{
-    background-color: goldenrod;
+    background-color: var(--accent-color);
     border: var(--table-border);
     padding: 2px;
     padding-top: 7px;
@@ -37,4 +33,10 @@ td:nth-child(3){
 
 td:nth-child(5){
     text-align: center;
+    width: 120px;
+}
+
+td:nth-child(7){
+    text-align: center;
+    width: 100px;
 }

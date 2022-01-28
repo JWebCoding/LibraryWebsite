@@ -1,12 +1,31 @@
+:root{
+  --main-background-color: #5C636E;
+  --secondary-background-color: #393E46; 
+  --tertiary-background-color: #D6D6D6;
+  --accent-color: #F8B500;
+  --table-border:1.5px solid rgb(54, 53, 53);
+}
+
 html,
 body {
   width: 100%;
   height: 100%;
 }
 
-
-
 body {
-  background-color: rgb(75, 92, 97);
+  background-color: var(--main-background-color);
   margin: 0;
+}
+
+button {
+  background-color: var(--accent-color);
+  border-radius: 10px;
+}
+
+h1 {
+  color: var(--accent-color);
+}
+
+button:hover {
+  background-color: #fdcf5b;
 }
