@@ -1,7 +1,6 @@
 
 import './MainPane';
 import './BookViewPane';
-import './SignInPane';
 import React from "react";
 
 // This pane is a testing ground for various ideas.
