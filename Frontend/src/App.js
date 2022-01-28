@@ -48,7 +48,6 @@ const App = ()=>{
 			<Header onNewPaneSelected={updateCurrentPane} openSignInModal={openSignInModal} />
 			
 			<main>
-				{/* <button onClick={()=>setModalOpen(true)}>Open Modal</button> */}
 				<LoadPaneHandler />
 			</main>
 			<Footer />
