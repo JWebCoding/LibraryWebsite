@@ -108,8 +108,15 @@ const BookViewPane = (props) => {
     <React.Fragment>
       <div id="BookViewPane">
         <h1 id="PaneTitle">The Collection</h1>
-        <div id="BookTable">
-          <Table data={data} columns={columns} />
+        <div id="Table-and-Controls">
+          <div id="Table-Buttons">
+            <button>View Book Details</button>
+            <button>Refresh Table Data</button>
+            <button>Reset Table</button>
+          </div>
+          <div id="BookTable">
+            <Table data={data} columns={columns} />
+          </div>
         </div>
       </div>
     </React.Fragment>
