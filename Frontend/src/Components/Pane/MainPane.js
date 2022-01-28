@@ -7,10 +7,10 @@ const MainPane=()=>{
     return(
         <React.Fragment>
         <div id="main-pane">
-            <div id="pane-title">
+            <div id="mainPane-title">
                 <h1>Welcome!</h1>
             </div>
-            <div id="pane-imagebox">
+            <div id="mainPane-imagebox">
                 <ImageBox />
             </div>
         </div>
