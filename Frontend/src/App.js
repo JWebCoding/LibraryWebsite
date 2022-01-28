@@ -5,16 +5,23 @@ import Pane from "./Components/Pane/Pane";
 import MainPane from "./Components/Pane/MainPane";
 import BookViewPane from "./Components/Pane/BookViewPane";
 import AddBookPane from "./Components/Pane/AddBookPane";
-import SignInPane from  "./Components/Pane/SignInPane";
 import "./App.css";
+import SignIn from "./Components/Modal/SignIn";
 
 const App = ()=>{
 
 	const [currentPaneName, setCurrentPaneName]=useState("MainPane");
+	const [modalOpen, setModalOpen]=useState(false);
+	const [isLoggedIn, setLoggedIn]=useState(false);
+	const [username, setUsername]=useState("");
 
 	function updateCurrentPane(newPaneName){
 		console.log(`Updating pane from ${currentPaneName} to ${newPaneName}`);
 		setCurrentPaneName(newPaneName);
+	}
+
+	function openSignInModal(){
+		setModalOpen(true);
 	}
 
 	function LoadPaneHandler(){
@@ -25,8 +32,6 @@ const App = ()=>{
 				return <AddBookPane />
 			case 'BookViewPane':
 				return <BookViewPane />
-			case 'SignInPane':
-				return <SignInPane />
 			default:
 				return <Pane />
 		}
@@ -34,8 +39,16 @@ const App = ()=>{
 
 	return(
 		<React.Fragment>
-			<Header onNewPaneSelected={updateCurrentPane} />
+			<div>
+				<SignIn 
+				isopen={modalOpen}
+				onclose={()=>setModalOpen(false)}
+				/>
+			</div>
+			<Header onNewPaneSelected={updateCurrentPane} openSignInModal={openSignInModal} />
+			
 			<main>
+				{/* <button onClick={()=>setModalOpen(true)}>Open Modal</button> */}
 				<LoadPaneHandler />
 			</main>
 			<Footer />

@@ -7,6 +7,10 @@ const Header=(props)=>{
         props.onNewPaneSelected(paneName);
     }
 
+    const signinModalHandler=()=>{
+        props.openSignInModal();
+    }
+
     return(
         <header id="header">
             <div id="header-title">
@@ -14,8 +18,8 @@ const Header=(props)=>{
             </div>
             <div id="header-buttons">
                 <button onClick={()=> switchPaneHandler('BookViewPane')}> View Books</button>
-                <button onClick={() => switchPaneHandler("AddBookPane")}> Add Books </button>
-                <button onClick={() => switchPaneHandler("SignInPane")}> Login</button>
+                <button onClick={()=> switchPaneHandler("AddBookPane")}> Add Books </button>
+                <button onClick={()=> signinModalHandler()}> Login</button>
             </div>
         </header>
     );
