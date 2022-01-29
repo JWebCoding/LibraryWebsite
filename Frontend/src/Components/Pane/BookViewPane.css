@@ -17,7 +17,18 @@
   display: flex;
   flex-direction: column;
   align-items:flex-start;
-  /* padding-top: 30px;
-  padding-right:20px; */
+  padding-top: 30px;
+  padding-right:10px;
+}
+
+#Table-Buttons > button{
+  transition: background-color 0.3s;
+  width: 135px;
+  height: 50px;
+  margin-bottom: 7px;
+  font-size: 18px;
+  border: solid 3px;
+  border-radius: 12px;
+  font-weight: bold;
 }
 

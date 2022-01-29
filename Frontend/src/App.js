@@ -13,7 +13,7 @@ const App = ()=>{
 	const [currentPaneName, setCurrentPaneName]=useState("MainPane");
 	const [modalOpen, setModalOpen]=useState(false);
 	const [isLoggedIn, setLoggedIn]=useState(false);
-	const [username, setUsername]=useState("");
+	const [userName, setUserName]=useState("");
 
 	function updateCurrentPane(newPaneName){
 		console.log(`Updating pane from ${currentPaneName} to ${newPaneName}`);
@@ -24,10 +24,24 @@ const App = ()=>{
 		setModalOpen(true);
 	}
 
+	function signInUser(newUserName){
+		setUserName(newUserName);
+		setLoggedIn(true);
+	}
+
+	function signOutCurrentUser(){
+		setUserName("");
+		setLoggedIn(false);
+	}
+
+	const printUserInfo=()=>{
+		console.log(`User Info:\nis loggedin? ${isLoggedIn}\nUsername: ${userName}`)
+	}
+
 	function LoadPaneHandler(){
 		switch(currentPaneName){
 			case 'MainPane':
-				return <MainPane />
+				return <MainPane user={userName} />
 			case 'AddBookPane':
 				return <AddBookPane />
 			case 'BookViewPane':
@@ -43,11 +57,20 @@ const App = ()=>{
 				<SignIn 
 				isopen={modalOpen}
 				onclose={()=>setModalOpen(false)}
+				onSignIn={signInUser}
 				/>
 			</div>
-			<Header onNewPaneSelected={updateCurrentPane} openSignInModal={openSignInModal} />
+			<Header 
+			signInStatus={isLoggedIn} 
+			user={userName} 
+			onNewPaneSelected={updateCurrentPane} 
+			openSignInModal={openSignInModal} 
+			signOutUser={signOutCurrentUser}/>
 			
 			<main>
+				{/*↓ For Testing ↓*/}
+				<button onClick={()=>printUserInfo()}>Print user info</button>
+				{/*↑ Remove when no longer needed ↑*/}
 				<LoadPaneHandler />
 			</main>
 			<Footer />

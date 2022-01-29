@@ -1,28 +1,48 @@
 import React from "react";
 import "./Header.css";
 
-const Header=(props)=>{
+const Header = (props) => {
+  let loginButtontext ="";
 
-    const switchPaneHandler=(paneName)=>{
-        props.onNewPaneSelected(paneName);
+  // Check if the user is logged in and -
+  // set the text of the login button accordingly.
+  if (props.signInStatus === true) {
+    loginButtontext = "Logout";
+  } else {
+    loginButtontext = "Login";
+  }
+
+  const switchPaneHandler = (paneName) => {
+    props.onNewPaneSelected(paneName);
+  };
+
+  const loginButtonHandler = () => {
+    if(props.signInStatus!==true){
+      props.openSignInModal();
+    } else {
+      props.signOutUser();
     }
+    
+  };
 
-    const signinModalHandler=()=>{
-        props.openSignInModal();
-    }
-
-    return(
-        <header id="header">
-            <div id="header-title">
-                <button onClick={()=> switchPaneHandler('MainPane')}>Weber Library</button>
-            </div>
-            <div id="header-buttons">
-                <button onClick={()=> switchPaneHandler('BookViewPane')}> View Books</button>
-                <button onClick={()=> switchPaneHandler("AddBookPane")}> Add Books </button>
-                <button onClick={()=> signinModalHandler()}> Login</button>
-            </div>
-        </header>
-    );
-}
+  return (
+    <header id="header">
+      <div id="header-title">
+        <button onClick={() => switchPaneHandler("MainPane")}>
+          Weber Library
+        </button>
+      </div>
+      <div id="header-buttons">
+        <button onClick={() => switchPaneHandler("BookViewPane")}>
+          View Books
+        </button>
+        <button onClick={() => switchPaneHandler("AddBookPane")}>
+          Add Books{" "}
+        </button>
+        <button onClick={() => loginButtonHandler()}>{loginButtontext}</button>
+      </div>
+    </header>
+  );
+};
 
 export default Header;

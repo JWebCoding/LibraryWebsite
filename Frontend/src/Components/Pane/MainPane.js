@@ -2,13 +2,18 @@ import React from "react";
 import './MainPane.css';
 import ImageBox from "../ImageBox/ImageBox";
 
-const MainPane=()=>{
-
+const MainPane=(props)=>{
+    let welcome=""
+    if(!props.user==""){
+        welcome=`Welcome ${props.user}!`;
+    } else {
+        welcome="Welcome!";
+    }
     return(
         <React.Fragment>
         <div id="main-pane">
             <div id="mainPane-title">
-                <h1>Welcome!</h1>
+                <h1>{welcome}</h1>
             </div>
             <div id="mainPane-imagebox">
                 <ImageBox />
