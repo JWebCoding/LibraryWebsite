@@ -1,13 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./SignIn.css";
+import {userList} from "../../Data/SignInData"
 
 
 
-const SignIn = ({ message, isopen, onclose }) => {
+const SignIn = ({ isopen, onclose, onSignIn }) => {
 
-  const signInHandler=()=>{
-    console.log("TEST");
+  const signInHandler=(props)=>{
+    let username=document.getElementById("usernameInput").value;
+    let password=document.getElementById("passwordInput").value;
+
+    for(var key in userList){
+      if(userList[key].username==username && userList[key].password==password){
+        console.log("Accepted");
+        onSignIn(userList[key].name);
+        break;
+      } else {
+        console.log("Refused");
+        if(key==userList.length-1){
+          console.log("No Valid user found");
+        }
+      }
+    }
   }
 
   if (!isopen) return null;
