@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./SignIn.css";
+import "./Modal.css";
 import {userList} from "../../Data/SignInData"
 
 
@@ -15,6 +16,7 @@ const SignIn = ({ isopen, onclose, onSignIn }) => {
       if(userList[key].username==username && userList[key].password==password){
         console.log("Accepted");
         onSignIn(userList[key].name);
+        onclose();
         break;
       } else {
         console.log("Refused");
