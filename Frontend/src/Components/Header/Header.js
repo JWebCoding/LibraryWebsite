@@ -2,14 +2,14 @@ import React from "react";
 import "./Header.css";
 
 const Header = (props) => {
-  let loginButtontext ="";
+  let loginButtonText ="";
 
   // Check if the user is logged in and -
   // set the text of the login button accordingly.
   if (props.signInStatus === true) {
-    loginButtontext = "Logout";
+    loginButtonText = "Logout";
   } else {
-    loginButtontext = "Login";
+    loginButtonText = "Login";
   }
 
   const switchPaneHandler = (paneName) => {
@@ -39,7 +39,7 @@ const Header = (props) => {
         <button onClick={() => switchPaneHandler("AddBookPane")}>
           Add Books{" "}
         </button>
-        <button onClick={() => loginButtonHandler()}>{loginButtontext}</button>
+        <button onClick={() => loginButtonHandler()}>{loginButtonText}</button>
       </div>
     </header>
   );
