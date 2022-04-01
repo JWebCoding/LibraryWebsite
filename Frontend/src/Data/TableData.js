@@ -7,6 +7,7 @@ export const data = [
     publisher: "Harcourt",
     copyright: 1844,
     isbn: 97845325138,
+    pages: 958,
     format: "Hardcover",
   },
   {
@@ -16,6 +17,7 @@ export const data = [
     publisher: "Penguin",
     copyright: 1856,
     isbn: 97878431846,
+    pages: 1413,
     format: "Hardcover",
   },
   {
@@ -25,6 +27,7 @@ export const data = [
     publisher: "Naval Institute Press",
     copyright: 1984,
     isbn: 870212850,
+    pages: 273,
     format: "Hardcover",
   },
   {
@@ -34,6 +37,7 @@ export const data = [
     publisher: "Readers Digest ",
     copyright: 1988,
     isbn: 895773201,
+    pages: 1756,
     format: "Hardcover",
   },
   {
@@ -43,6 +47,7 @@ export const data = [
     publisher: "Simon & Schuster",
     copyright: 1844,
     isbn: 671456547,
+    pages: 1158,
     format: "Hardcover",
   },
   {
@@ -52,6 +57,7 @@ export const data = [
     publisher: "Ace",
     copyright: 1856,
     isbn: 9780593099322,
+    pages: 648,
     format: "Hardcover",
   },
 ];
