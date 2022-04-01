@@ -22,10 +22,11 @@ button {
   border-radius: 10px;
 }
 
-h1 {
+h1, h2{
   color: var(--accent-color);
 }
 
 button:hover {
+  transition: background-color 0.5s;
   background-color: #fdcf5b;
 }
