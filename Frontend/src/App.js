@@ -7,11 +7,13 @@ import BookViewPane from "./Components/Pane/BookViewPane";
 import AddBookPane from "./Components/Pane/AddBookPane";
 import "./App.css";
 import SignIn from "./Components/Modal/SignIn";
+import BookDetails from "./Components/Modal/BookDetails";
 
 const App = ()=>{
 
 	const [currentPaneName, setCurrentPaneName]=useState("MainPane");
-	const [modalOpen, setModalOpen]=useState(false);
+	const [SignInModalOpen, setSignInModalOpen]=useState(false);
+	const [BookDetailsModalOpen, setBookDetailsModalOpen]=useState(false);
 	const [isLoggedIn, setLoggedIn]=useState(false);
 	const [userName, setUserName]=useState("");
 
@@ -21,7 +23,11 @@ const App = ()=>{
 	}
 
 	function openSignInModal(){
-		setModalOpen(true);
+		setSignInModalOpen(true);
+	}
+
+	function openBookDetailsModal(){
+		setBookDetailsModalOpen(true);
 	}
 
 	function signInUser(newUserName){
@@ -45,7 +51,7 @@ const App = ()=>{
 			case 'AddBookPane':
 				return <AddBookPane />
 			case 'BookViewPane':
-				return <BookViewPane />
+				return <BookViewPane openBookDetailsModal={openBookDetailsModal} />
 			default:
 				return <Pane />
 		}
@@ -55,22 +61,22 @@ const App = ()=>{
 		<React.Fragment>
 			<div>
 				<SignIn 
-				isopen={modalOpen}
-				onclose={()=>setModalOpen(false)}
+				isopen={SignInModalOpen}
+				onclose={()=>setSignInModalOpen(false)}
 				onSignIn={signInUser}
+				/>
+				<BookDetails 
+				isopen={BookDetailsModalOpen}
+				onclose={()=>setBookDetailsModalOpen(false)}
 				/>
 			</div>
 			<Header 
 			signInStatus={isLoggedIn} 
-			user={userName} 
 			onNewPaneSelected={updateCurrentPane} 
 			openSignInModal={openSignInModal} 
 			signOutUser={signOutCurrentUser}/>
 			
 			<main>
-				{/*↓ For Testing ↓*/}
-				<button onClick={()=>printUserInfo()}>Print user info</button>
-				{/*↑ Remove when no longer needed ↑*/}
 				<LoadPaneHandler />
 			</main>
 			<Footer />
