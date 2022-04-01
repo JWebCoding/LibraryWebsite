@@ -1,0 +1,87 @@
+.modal-content {
+  width: 675px;
+  padding: 0px;
+  border: 4px solid var(--tertiary-background-color);
+  border-radius: 15px;
+}
+
+.modal-header{
+  display: flex; 
+  justify-content: center;
+  border-bottom: 4px solid var(--tertiary-background-color);
+}
+
+.modal-header > h2{
+  font-family: "Merriweather";
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.modal-main {
+  margin-top: 10px;
+}
+
+.modal-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 50px;
+  border-top: 4px solid var(--tertiary-background-color);
+}
+
+.modal-footer > button {
+  width: 100px;
+  height:35px;
+  font-size: 19px;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  margin: 10px;
+}
+.sub-row > label {
+  color:var(--accent-color);
+  font-size: 22px;
+  margin-right:5px;
+}
+
+.sub-row > input {
+  height: 25px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+#title{
+  width: 300px;
+}
+
+#author{
+  width: 175px;
+}
+
+#isbn{
+  width: 120px;
+}
+
+#copyright{
+  width: 35px;
+}
+
+#pages{
+  width: 35px;
+}
+
+#genre{
+  width:120px;
+}
+
+#format{
+  width: 65px;
+}
