@@ -7,6 +7,25 @@
   align-self: center;
 }
 
+#Search-Bar{
+  align-self: center;
+  padding-bottom: 10px;
+}
+
+#Search-Bar > input{
+  font-size: 20px;
+  height: 35px;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+#Search-Bar > button{
+  transition: background-color 0.3s;
+  height: 40px;
+  font-size: 19px;
+  font-weight: bold;
+}
+
 #Table-and-Controls{
   display: flex;
   flex-direction: row;
