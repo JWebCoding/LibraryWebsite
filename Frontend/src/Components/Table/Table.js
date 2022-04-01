@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useTable, useSortBy } from "react-table";
+import { useTable, useSortBy, useRowSelect } from "react-table";
 import "./Table.css";
 
 const Table = ({ columns, data }) => {
-  // const [loading, setLoading] = useState(true);
-
-  // if (seconds === 3) {
-  //   setLoading(false);
-  // } else {
-  //   setLoading(true);
-  // }
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data }, useSortBy);
+    useTable({ columns, data }, useSortBy, useRowSelect);
 
   return (
     <table {...getTableProps()}>
@@ -27,7 +20,6 @@ const Table = ({ columns, data }) => {
               >
                 {column.render("Header")}
                 <span>
-                  {/* {column.isSorted ? (column.isSortedDesc ? " 🔽" : " 🔼") : ""} */}
                   {column.isSorted ? (column.isSortedDesc ? " ↓" : " ↑") : ""}
                 </span>
               </th>
