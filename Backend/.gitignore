@@ -1,5 +1,9 @@
 HELP.md
 !.mvn/wrapper/maven-wrapper.jar
+/target/maven-status/
+/target/classes/static/
+/target/classes/jweb
+/target/classes/META-INF
 
 ### STS ###
 .apt_generated
