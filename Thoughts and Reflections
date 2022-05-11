@@ -26,6 +26,9 @@ only the larger "Book" entity will be needed.
 After reflection, I belive using both options may be the better course. Use the larger entity/repository for filling in the book table that will be usable 
 even when not logged in and then allow for a website that can be used to add new books to the database. 
 
+Maybe an entity for each of the tables and the smaller (less detailed) "Book" table and then a larger "super entity" for the full Book? The information is 
+rather different considering that the former is largely composed of keys and the latter is actually able to be read by mere humans.
+
 Should anything else be added though? 
 
 The desktop's purpose is to facilitate more in-depth interaction with the database and the website was originally meant to be a useful companion piece that 
