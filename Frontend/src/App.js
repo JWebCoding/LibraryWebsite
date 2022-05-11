@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
-import Pane from "./Components/Pane/Pane";
 import MainPane from "./Components/Pane/MainPane";
 import BookViewPane from "./Components/Pane/BookViewPane";
 import AddBookPane from "./Components/Pane/AddBookPane";
 import "./App.css";
 import SignIn from "./Components/Modal/SignIn";
 import BookDetails from "./Components/Modal/BookDetails";
+import { BrowserRouter, Route , Routes} from "react-router-dom";
 
 const App = ()=>{
 
@@ -44,20 +44,8 @@ const App = ()=>{
 		console.log(`User Info:\nis loggedin? ${isLoggedIn}\nUsername: ${userName}`)
 	}
 
-	function LoadPaneHandler(){
-		switch(currentPaneName){
-			case 'MainPane':
-				return <MainPane user={userName} />
-			case 'AddBookPane':
-				return <AddBookPane />
-			case 'BookViewPane':
-				return <BookViewPane openBookDetailsModal={openBookDetailsModal} />
-			default:
-				return <Pane />
-		}
-	}
-
 	return(
+		<BrowserRouter>
 		<React.Fragment>
 			<div>
 				<SignIn 
@@ -77,10 +65,19 @@ const App = ()=>{
 			signOutUser={signOutCurrentUser}/>
 			
 			<main>
-				<LoadPaneHandler />
+				{/* <LoadPaneHandler /> */}
+				<div>
+						<Routes>
+							<Route exact path="/" element={<MainPane user={userName} />} />
+							<Route path="/view" element={<BookViewPane openBookDetailsModal={openBookDetailsModal} />} />
+							<Route path="/add" element={<AddBookPane />} />
+						</Routes>
+				</div>
 			</main>
 			<Footer />
+			
 		</React.Fragment>
+		</BrowserRouter>
 	);
 }
 
