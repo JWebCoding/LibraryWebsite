@@ -9,7 +9,7 @@
 }
 
 
-#header-title > button{
+.title-button{
   color: var(--accent-color);
   font-size: 45px;
   background: none;
@@ -22,7 +22,7 @@
   align-self: center;
 }
 
-#header-buttons > button {
+.link-button {
 
   transition: background-color 0.5s;
   font-size: 17px;
