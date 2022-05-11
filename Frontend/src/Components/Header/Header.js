@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = (props) => {
@@ -27,19 +28,15 @@ const Header = (props) => {
 
   return (
     <header id="header">
+
       <div id="header-title">
-        <button onClick={() => switchPaneHandler("MainPane")}>
-          Weber Library
-        </button>
+        <Link to="/"><button className="title-button">Weber Library</button></Link>
       </div>
+
       <div id="header-buttons">
-        <button onClick={() => switchPaneHandler("BookViewPane")}>
-          View Books
-        </button>
-        <button onClick={() => switchPaneHandler("AddBookPane")}>
-          Add Books{" "}
-        </button>
-        <button onClick={() => loginButtonHandler()}>{loginButtonText}</button>
+        <Link to="view"><button className="link-button">View Books</button></Link>
+        <Link to="add"><button className="link-button">View Books</button></Link>
+        <button className="link-button" onClick={() => loginButtonHandler()}>{loginButtonText}</button>
       </div>
     </header>
   );
