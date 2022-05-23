@@ -1,11 +1,18 @@
 ﻿#Variables
-$Directory = "C:\Users\Jweber\Documents\Programming_Projects\LibraryWebsite\Frontend"
+$FrontendDirectory = "C:\Users\Jweber\Documents\Programming_Projects\LibraryWebsite\Frontend"
+$BackendDirectory = "C:\Users\Jweber\Documents\Programming_Projects\LibraryWebsite\Backend\target\classes"
 $sourceDirectory = "C:\Users\Jweber\Documents\Programming_Projects\LibraryWebsite\Frontend\build\*"
 $targetDirectory = "C:\Users\Jweber\Documents\Programming_Projects\LibraryWebsite\Backend\target\classes\static"
 
-#test
-
-#Build the application and then copy it to the server's 
-cd $Directory
+# Build the application
+Set-Location $FrontendDirectory
 npm run-script build
-Copy-Item -Force -Recurse $sourceDirectory -Destination $targetDirectory
+
+# If the "static" folder exists in the backend then copy/paste the build files.
+# Create the folder first if it doesn't.
+if (Test-Path -Path $targetDirectory){
+  Copy-Item -Force -Recurse $sourceDirectory -Destination $targetDirectory
+} else {
+  New-Item -Path $BackendDirectory -Name "static" -ItemType "directory"
+  Copy-Item -Force -Recurse $sourceDirectory -Destination $targetDirectory
+}
