@@ -30,12 +30,12 @@ const Header = (props) => {
     <header id="header">
 
       <div id="header-title">
-        <Link to="/"><button className="title-button">Weber Library</button></Link>
+        <Link to="/main"><button className="title-button">Weber Library</button></Link>
       </div>
 
       <div id="header-buttons">
         <Link to="view"><button className="link-button">View Books</button></Link>
-        <Link to="add"><button className="link-button">View Books</button></Link>
+        <Link to="add"><button className="link-button">Add Books</button></Link>
         <button className="link-button" onClick={() => loginButtonHandler()}>{loginButtonText}</button>
       </div>
     </header>
