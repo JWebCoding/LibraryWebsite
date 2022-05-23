@@ -4,6 +4,7 @@ import Footer from "./Components/Footer/Footer";
 import MainPane from "./Components/Pane/MainPane";
 import BookViewPane from "./Components/Pane/BookViewPane";
 import AddBookPane from "./Components/Pane/AddBookPane";
+import TestPane from "./Components/Pane/TestPane";
 import "./App.css";
 import SignIn from "./Components/Modal/SignIn";
 import BookDetails from "./Components/Modal/BookDetails";
@@ -68,9 +69,10 @@ const App = ()=>{
 				{/* <LoadPaneHandler /> */}
 				<div>
 						<Routes>
-							<Route exact path="/" element={<MainPane user={userName} />} />
-							<Route path="/view" element={<BookViewPane openBookDetailsModal={openBookDetailsModal} />} />
-							<Route path="/add" element={<AddBookPane />} />
+							<Route exact path="/main" element={<MainPane user={userName} />} />
+							<Route exact path="/view" element={<BookViewPane openBookDetailsModal={openBookDetailsModal} />} />
+							<Route exact path="/add" element={<AddBookPane />} />
+							<Route exact path="/test" element={<TestPane />} />
 						</Routes>
 				</div>
 			</main>
