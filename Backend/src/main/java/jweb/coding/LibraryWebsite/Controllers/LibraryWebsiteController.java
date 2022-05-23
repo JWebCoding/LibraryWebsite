@@ -10,28 +10,32 @@ import jweb.coding.LibraryWebsite.Repsoitories.LanguageRepository;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 
 //@CrossOrigin(origins= "http://localhost:8081")
-@Controller
-//@RequestMapping(path="/books")
+@RestController
+@RequestMapping(path="/api")
 public class LibraryWebsiteController {
 	@Autowired BookRepository bookRepository;
 	@Autowired AuthorRepository authorRepository;
 	@Autowired GenreRepository genreRepository;
-	@Autowired LanguageRepository lrepo;
+	@Autowired LanguageRepository languageRepository;
 	
+	@CrossOrigin(origins="http://localhost:8080")
 	@GetMapping(path="/books")
-	  public @ResponseBody Iterable<Book> getAllBooks() {
-	    // This returns a JSON or XML with the users
-	    return bookRepository.findAll();
-	  }
+	public @ResponseBody Iterable<Book> getTenBooks() {
+	  // This returns a JSON or XML with the users
+	  return bookRepository.findLastTen();
+	}
 	
+	@CrossOrigin(origins="http://localhost:8080")
 	@GetMapping(path="/books/{id}")
 	public @ResponseBody List<Book> getSpecificBook(@PathVariable int id) {
 		return bookRepository.findBybookID(id);
@@ -53,8 +57,8 @@ public class LibraryWebsiteController {
 		Language newLanguage = new Language();
 		newLanguage.setLanguage_name("Test");
 		newLanguage.setLanguage_suffix("TS");
-		lrepo.save(newLanguage);
+		languageRepository.save(newLanguage);
 		System.out.println("New Language Saved");
-		
+
 	}
 }
