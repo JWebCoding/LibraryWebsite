@@ -1,4 +1,42 @@
 // Holds the data and columns for the BookView Table.
+export const columns = [
+  {
+    className: "title",
+    Header: "Title",
+    accessor: "title",
+  },
+  {
+    className: "author",
+    Header: "Author",
+    accessor: "author",
+  },
+  {
+    className: "genre",
+    Header: "Genre",
+    accessor: "genre",
+  },
+  {
+    className: "publisher",
+    Header: "Publisher",
+    accessor: "publisher",
+  },
+  {
+    className: "copyright",
+    Header: "CopyRight",
+    accessor: "copyright",
+  },
+  {
+    className: "isbn",
+    Header: "ISBN",
+    accessor: "isbn",
+  },
+  {
+    className: "format",
+    Header: "Format",
+    accessor: "format",
+  },
+];
+
 export const data = [
   {
     title: "The Count of Monte Cristo",
@@ -62,40 +100,4 @@ export const data = [
   },
 ];
 
-export const columns = [
-  {
-    className: "title",
-    Header: "Title",
-    accessor: "title",
-  },
-  {
-    className: "author",
-    Header: "Author",
-    accessor: "author",
-  },
-  {
-    className: "genre",
-    Header: "Genre",
-    accessor: "genre",
-  },
-  {
-    className: "publisher",
-    Header: "Publisher",
-    accessor: "publisher",
-  },
-  {
-    className: "copyright",
-    Header: "CopyRight",
-    accessor: "copyright",
-  },
-  {
-    className: "isbn",
-    Header: "ISBN",
-    accessor: "isbn",
-  },
-  {
-    className: "format",
-    Header: "Format",
-    accessor: "format",
-  },
-];
+
