@@ -1,13 +1,15 @@
 import React from "react";
+import http from "../../http-common";
+import axios from "axios";
 
 const AddBookPane = (props) => {
+
+  
   return (
     <div id="AddBookPane">
-      <header>
-        
-      </header>
+      <h1>Add Book Pane</h1>
       <main>
-        <h1>HELLO</h1>
+        <p>This is placeholder</p>
       </main>
     </div>
   );
