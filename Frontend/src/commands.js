@@ -7,7 +7,7 @@ class commands {
   }
 
   getTenBooks = () => {
-    return baseURL+`/books`;
+    return baseURL+`/books10`;
   }
 }
 
