@@ -32,7 +32,7 @@ public class LibraryWebsiteController {
 	@GetMapping(path="/books")
 	public @ResponseBody Iterable<Book> getAllBooks() {
 	  // This returns a JSON or XML with the users
-	  return bookRepository.findAll();
+	  return bookRepository.getAllBooks();
 	}
 	
 	@CrossOrigin(origins="http://localhost:8080")
