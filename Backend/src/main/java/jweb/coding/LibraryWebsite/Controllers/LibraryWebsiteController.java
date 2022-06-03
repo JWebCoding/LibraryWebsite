@@ -30,9 +30,16 @@ public class LibraryWebsiteController {
 	
 	@CrossOrigin(origins="http://localhost:8080")
 	@GetMapping(path="/books")
+	public @ResponseBody Iterable<Book> getAllBooks() {
+	  // This returns a JSON or XML with the users
+	  return bookRepository.findAll();
+	}
+	
+	@CrossOrigin(origins="http://localhost:8080")
+	@GetMapping(path="/books10")
 	public @ResponseBody Iterable<Book> getTenBooks() {
 	  // This returns a JSON or XML with the users
-	  return bookRepository.findLastTen();
+	  return bookRepository.getLastTen();
 	}
 	
 	@CrossOrigin(origins="http://localhost:8080")
