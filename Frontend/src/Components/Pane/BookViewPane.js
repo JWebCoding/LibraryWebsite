@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import Table from "../Table/Table";
 import "./BookViewPane.css";
-import { columns } from "../../Data/TableData";
-import LibraryDataService from "../../services/library.service";
-import commands from "../../commands";
-import axios from "axios";
+import { columns } from "../../Data/TableColumns";
 import libraryService from "../../services/library.service";
 
 const BookViewPane = (props) => {
@@ -15,26 +12,33 @@ const BookViewPane = (props) => {
 
   useEffect(() => {(async () => {
     try{
-      const response = await axios.get(commands.getTenBooks());
-      setBookInfo(response.data);
-
+      const response = await libraryService.getTenBooks();
+      fillTable(response.data);
     } catch(e) {
-      console.log("Error", e.stack);
-      console.log("Error", e.name);
-      console.log("Error", e.message);
+      printErrors(e);
     }
     })();
   }, []);
 
+  const searchForBooks = async () => {
+    
+  }
+
+  const restTableContents = async () => {
+    const response = await libraryService.getTenBooks();
+    fillTable(response.data);
+  }
+
+  function fillTable(bookData){
+    setBookInfo(bookData);
+  }
+
   const refreshTableHandler = async () => {
     try{
-      const allbooks = LibraryDataService.getAll();
-      console.log((await allbooks).data);
-
+      const allbooks = await libraryService.getAll();
+      fillTable(allbooks.data)
     } catch(e) {
-      console.log("Error", e.stack);
-      console.log("Error", e.name);
-      console.log("Error", e.message);
+      printErrors(e);
     }
   }
 
@@ -42,21 +46,25 @@ const BookViewPane = (props) => {
     props.openBookDetailsModal();
   };
 
+  function printErrors(error){
+    console.log("Error", error.stack);
+    console.log("Error", error.name);
+    console.log("Error", error.message);
+  }
+
   return (
     <React.Fragment>
       <div id="BookViewPane">
         <h1 id="PaneTitle">The Collection</h1>
         <div id="Search-Bar">
           <input className="searchBar" />
-          <button>Search</button>
+          <button onClick={() => searchForBooks()}>Search</button>
         </div>
         <div id="Table-and-Controls">
           <div id="Table-Buttons">
-            <button onClick={() => bookDetailHandler()}>
-              View Book Details
-            </button>
-            <button onClick={()=>refreshTableHandler()}>Refresh Table Data</button>
-            <button>Reset Table</button>
+            <button onClick={() => bookDetailHandler()}>View Book Details</button>
+            <button onClick={() => refreshTableHandler()}>Refresh Table Data</button>
+            <button onClick={() => restTableContents()}>Reset Table</button>
           </div>
           <div id="BookTable">
             <Table data={bookInfo} columns={tableColumns} />
