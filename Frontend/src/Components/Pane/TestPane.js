@@ -1,6 +1,5 @@
 import React from "react";
 import libraryService from "../../services/library.service";
-import commands from "../../commands";
 import axios from "axios";
 
 // This pane is a testing ground for various ideas.
@@ -14,7 +13,7 @@ const TestPane =()=>{
   const getBook = async () => {
     try{
       // const response = await axios.get(commands.getSpecificBook(bookID));
-      const response = await axios.get(commands.getTenBooks());
+      const response = await libraryService.getAll();
       console.log(response)
       // setBookInfo(response.data[0])
     } catch(error) {
