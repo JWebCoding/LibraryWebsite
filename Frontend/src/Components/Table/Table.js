@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useTable, useSortBy, useRowSelect, usePagination} from "react-table";
+import { useTable, useSortBy, useRowSelect, usePagination, useBlockLayout} from "react-table";
 import "./Table.css";
 
 const Table = ({ columns, data }) => {
@@ -9,7 +9,7 @@ const Table = ({ columns, data }) => {
     canNextPage, canPreviousPage, pageCount, setPageSize} =
 
     useTable({ columns, data, initialState: {pageIndex: 0, pageSize:20} }, 
-    useSortBy, useRowSelect, usePagination);
+    useSortBy, useRowSelect, usePagination, useBlockLayout);
 
   return (
     <div>
