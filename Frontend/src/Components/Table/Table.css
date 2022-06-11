@@ -31,16 +31,23 @@ tr:nth-child(even){
     background-color: #a0a0a0;
 }
 
+td{
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 td:nth-child(3){
     text-align: center;
 }
 
 td:nth-child(5){
     text-align: center;
-    width: 120px;
+}
+
+td:nth-child(6){
+    text-align: center;
 }
 
 td:nth-child(7){
     text-align: center;
-    width: 100px;
 }
