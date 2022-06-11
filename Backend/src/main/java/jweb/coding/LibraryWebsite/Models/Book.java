@@ -4,85 +4,86 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 public class Book {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@NotEmpty
 	int bookID;
 	
 	String title;
 	String genre_name;
 	String publisher_name;
 	String series_name;
+	String author;
+	
+	@Transient
 	String first_name;
-	
+	@Transient
+	String middle_name;
+	@Transient
+	String last_name;
+
 	int copyright;
+	int format;
+	int pages;
 	
-	Long isbn;
+	String isbn;
 
 	public int getBookID() {
 		return bookID;
-	}
-
-	public void setBookID(int bookID) {
-		this.bookID = bookID;
 	}
 
 	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getSeries_name() {
-		return series_name;
-	}
-
-	public void setSeries_name(String series_name) {
-		this.series_name = series_name;
-	}
-
-	public String getFirst_name() {
-		return first_name;
-	}
-
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-
-	public long getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(long isbn) {
-		this.isbn = isbn;
-	}
-
 	public String getGenre_name() {
 		return genre_name;
-	}
-
-	public void setGenre_name(String genre_name) {
-		this.genre_name = genre_name;
 	}
 
 	public String getPublisher_name() {
 		return publisher_name;
 	}
 
-	public void setPublisher_name(String publisher_name) {
-		this.publisher_name = publisher_name;
+	public String getSeries_name() {
+		return series_name;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public String getFirst_name() {
+		return first_name;
+	}
+
+	public String getMiddle_name() {
+		return middle_name;
+	}
+
+	public String getLast_name() {
+		return last_name;
 	}
 
 	public int getCopyright() {
 		return copyright;
 	}
 
-	public void setCopyright(int copyright) {
-		this.copyright = copyright;
+	public int getFormat() {
+		return format;
+	}
+
+	public int getPages() {
+		return pages;
+	}
+
+	public String getIsbn() {
+		return isbn;
 	}
 
 }
