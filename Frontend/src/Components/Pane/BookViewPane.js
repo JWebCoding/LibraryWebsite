@@ -8,12 +8,12 @@ const BookViewPane = (props) => {
 
   // Hooks
   const [bookInfo, setBookInfo] = React.useState([]);
+  const [searchInfo, setSearchInfo] = React.useState();
   const tableColumns = React.useMemo(() => columns, []);
 
   useEffect(() => {(async () => {
     try{
-      const response = await libraryService.getTenBooks();
-      fillTable(response.data);
+      showLastTenBooksHandler();
     } catch(e) {
       printErrors(e);
     }
@@ -21,10 +21,11 @@ const BookViewPane = (props) => {
   }, []);
 
   const searchForBooks = async () => {
-    
+    const response = await libraryService.searchForBooks(searchInfo);
+    fillTable(response.data);
   }
 
-  const restTableContents = async () => {
+  const showLastTenBooksHandler = async () => {
     const response = await libraryService.getTenBooks();
     fillTable(response.data);
   }
@@ -33,7 +34,7 @@ const BookViewPane = (props) => {
     setBookInfo(bookData);
   }
 
-  const refreshTableHandler = async () => {
+  const showAllBooksHandler = async () => {
     try{
       const allbooks = await libraryService.getAll();
       fillTable(allbooks.data)
@@ -52,19 +53,23 @@ const BookViewPane = (props) => {
     console.log("Error", error.message);
   }
 
+  const handleChange = (event) => {
+    setSearchInfo(event.target.value);
+  }
+
   return (
     <React.Fragment>
       <div id="BookViewPane">
         <h1 id="PaneTitle">The Collection</h1>
         <div id="Search-Bar">
-          <input className="searchBar" />
-          <button onClick={() => searchForBooks()}>Search</button>
+          <input className="searchBar" onChange={handleChange} placeholder="Type here..."/>
+          <button onClick={() => searchForBooks(searchInfo)}>Search</button>
         </div>
         <div id="Table-and-Controls">
           <div id="Table-Buttons">
             <button onClick={() => bookDetailHandler()}>View Book Details</button>
-            <button onClick={() => refreshTableHandler()}>Refresh Table Data</button>
-            <button onClick={() => restTableContents()}>Reset Table</button>
+            <button onClick={() => showAllBooksHandler()}>Show All Books</button>
+            <button onClick={() => showLastTenBooksHandler()}>Reset Table</button>
           </div>
           <div id="BookTable">
             <Table data={bookInfo} columns={tableColumns} />
