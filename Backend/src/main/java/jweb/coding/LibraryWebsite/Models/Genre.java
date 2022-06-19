@@ -14,24 +14,18 @@ public class Genre {
 	String genre_name;
 	
 	int genre_type;
-	
 
 	public int getGenreID() {
 		return genreID;
 	}
-	public void setGenreID(int genreID) {
-		this.genreID = genreID;
-	}
+
 	public String getGenre_name() {
 		return genre_name;
 	}
-	public void setGenre_name(String genre_name) {
-		this.genre_name = genre_name;
-	}
+
 	public int getGenre_type() {
 		return genre_type;
 	}
-	public void setGenre_type(int genre_type) {
-		this.genre_type = genre_type;
-	}
+	
+	
 }

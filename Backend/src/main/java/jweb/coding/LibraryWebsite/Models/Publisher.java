@@ -13,24 +13,15 @@ public class Publisher {
 	
 	String publisher_name;
 	String publisher_location;
-	
-	
 	public int getPublisherID() {
 		return publisherID;
-	}
-	public void setPublisherID(int publisherID) {
-		this.publisherID = publisherID;
 	}
 	public String getPublisher_name() {
 		return publisher_name;
 	}
-	public void setPublisher_name(String publisher_name) {
-		this.publisher_name = publisher_name;
-	}
 	public String getPublisher_location() {
 		return publisher_location;
 	}
-	public void setPublisher_location(String publisher_location) {
-		this.publisher_location = publisher_location;
-	}
+	
+	
 }

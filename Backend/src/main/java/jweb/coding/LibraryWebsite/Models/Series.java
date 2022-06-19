@@ -16,13 +16,10 @@ public class Series {
 	public int getSeriesID() {
 		return seriesID;
 	}
-	public void setSeriesID(int seriesID) {
-		this.seriesID = seriesID;
-	}
+
 	public String getSeries_name() {
 		return series_name;
 	}
-	public void setSeries_name(String series_name) {
-		this.series_name = series_name;
-	}
+
+	
 }
