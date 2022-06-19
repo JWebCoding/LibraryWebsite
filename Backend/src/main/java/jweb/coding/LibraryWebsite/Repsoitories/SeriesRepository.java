@@ -6,4 +6,5 @@ import jweb.coding.LibraryWebsite.Models.Series;
 public interface SeriesRepository extends CrudRepository<Series, Integer>{
 	List<Series> findAll();
 
+	List<Series> findBySeriesID(int seriesID);
 }

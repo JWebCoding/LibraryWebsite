@@ -6,4 +6,5 @@ import jweb.coding.LibraryWebsite.Models.Publisher;
 public interface PublisherRepository extends CrudRepository<Publisher, Integer>{
 	List<Publisher> findAll();
 
+	List<Publisher> findByPublisherID(int PublisherID);
 }

@@ -7,4 +7,5 @@ import jweb.coding.LibraryWebsite.Models.Language;
 public interface LanguageRepository extends CrudRepository<Language, Integer>{
 	List<Language> findAll();
 	
+	List<Language> findBylanguageID(int LangaugeID);
 }
