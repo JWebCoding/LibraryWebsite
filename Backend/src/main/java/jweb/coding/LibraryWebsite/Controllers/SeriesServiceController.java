@@ -23,4 +23,9 @@ public class SeriesServiceController {
 	public ResponseEntity<Object> getSeries() {
 		return new ResponseEntity<>(seriesServiceImpl.getSeries(), HttpStatus.OK);
 	}
+	
+	@GetMapping("/specific/{id}")
+	public ResponseEntity<Object> getSpecificSeries(@PathVariable("id") int id){
+		return new ResponseEntity<>(seriesServiceImpl.getSpecificSeries(id),HttpStatus.OK);
+	}
 }

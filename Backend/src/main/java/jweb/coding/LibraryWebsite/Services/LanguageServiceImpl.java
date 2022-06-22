@@ -1,6 +1,7 @@
 package jweb.coding.LibraryWebsite.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ public class LanguageServiceImpl implements LanguageService{
 	@Override
 	public List<Language> getLanguages() {
 		return languageRepository.findAll();
+	}
+
+	@Override
+	public List<Language> getSpecificLanguage(int id) {
+		return languageRepository.findBylanguageID(id);
 	}
 
 }

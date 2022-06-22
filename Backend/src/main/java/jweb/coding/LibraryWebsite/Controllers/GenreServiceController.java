@@ -23,5 +23,10 @@ public class GenreServiceController {
 	public ResponseEntity<Object> getBooks() {
 		return new ResponseEntity<>(genreServicesImpl.getGenres(), HttpStatus.OK);
 	}
+	
+	@GetMapping(path="/specific/{id}")
+	public ResponseEntity<Object> getSpecificBook(@PathVariable("id") int id) {
+		return new ResponseEntity<>(genreServicesImpl.getSpecificGenre(id),HttpStatus.OK);
+	}
 
 }

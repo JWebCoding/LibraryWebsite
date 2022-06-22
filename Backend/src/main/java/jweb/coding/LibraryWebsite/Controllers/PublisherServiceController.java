@@ -23,4 +23,9 @@ public class PublisherServiceController {
 	public ResponseEntity<Object> getPublishers() {
 		return new ResponseEntity<>(publisherServiceImpl.getPublishers(), HttpStatus.OK);
 	}
+	
+	@GetMapping("/specific/{id}")
+	public ResponseEntity<Object> getSpecificPublisher(@PathVariable("id") int id){
+		return new ResponseEntity<>(publisherServiceImpl.getSpecificPublisher(id),HttpStatus.OK);
+	}
 }

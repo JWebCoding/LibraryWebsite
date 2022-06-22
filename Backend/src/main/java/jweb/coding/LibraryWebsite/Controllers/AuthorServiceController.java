@@ -25,4 +25,9 @@ public class AuthorServiceController {
 	public ResponseEntity<Object> getAuthors() {
 		return new ResponseEntity<>(authorServiceImpl.getAuthors(), HttpStatus.OK);
 	}
+	
+	@GetMapping(path="/specific/{id}")
+	public ResponseEntity<Object> getSpecificAuthor(@PathVariable("id") int id) {
+		return new ResponseEntity<>(authorServiceImpl.getSpecificAuthor(id), HttpStatus.OK);
+	}
 }

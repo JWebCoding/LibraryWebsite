@@ -1,6 +1,7 @@
 package jweb.coding.LibraryWebsite.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ public class SeriesServiceImpl implements SeriesService{
 	@Override
 	public List<Series> getSeries() {
 		return seriesRepository.findAll();
+	}
+
+	@Override
+	public List<Series> getSpecificSeries(int id) {
+		return seriesRepository.findBySeriesID(id);
 	}
 
 }

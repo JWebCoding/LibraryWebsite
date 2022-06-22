@@ -24,4 +24,9 @@ public class LanguageServiceController {
 	public ResponseEntity<Object> getBooks() {
 		return new ResponseEntity<>(languageServiceImpl.getLanguages(), HttpStatus.OK);
 	}
+	
+	@GetMapping("/specific/{id}")
+	public ResponseEntity<Object> getSpecificBook(@PathVariable("id") int id){
+		return new ResponseEntity<>(languageServiceImpl.getSpecificLanguage(id),HttpStatus.OK);
+	}
 }
