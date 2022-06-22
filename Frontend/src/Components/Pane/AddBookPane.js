@@ -1,15 +1,19 @@
 import React from "react";
-import http from "../../http-common";
-import axios from "axios";
+import Accordion from "../AccordionMenu/Accordion";
+import { accordionData } from "../../Data/AccordionData";
+import "./AddBookPane.css";
 
 const AddBookPane = (props) => {
 
-  
   return (
     <div id="AddBookPane">
       <h1>Add Book Pane</h1>
       <main>
-        <p>This is placeholder</p>
+        <div className="accordion-menu">
+          {accordionData.map(({ title, id, content }) => (
+          <Accordion title={title} id={id} content={content} />
+          ))}
+        </div>
       </main>
     </div>
   );
