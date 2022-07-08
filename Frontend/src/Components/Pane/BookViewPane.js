@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Table from "../Table/Table";
 import "./BookViewPane.css";
 import { columns } from "../../Data/TableColumns";
@@ -7,9 +7,9 @@ import libraryService from "../../services/library.service";
 const BookViewPane = (props) => {
 
   // Hooks
-  const [bookInfo, setBookInfo] = React.useState([]);
-  const [searchInfo, setSearchInfo] = React.useState();
-  const tableColumns = React.useMemo(() => columns, []);
+  const [bookInfo, setBookInfo] = useState([]);
+  const [searchInfo, setSearchInfo] = useState();
+  const tableColumns = useMemo(() => columns, []);
 
   useEffect(() => {(async () => {
     try{
@@ -36,7 +36,7 @@ const BookViewPane = (props) => {
 
   const showAllBooksHandler = async () => {
     try{
-      const allbooks = await libraryService.getAll();
+      const allbooks = await libraryService.getAllBooks();
       fillTable(allbooks.data)
     } catch(e) {
       printErrors(e);
