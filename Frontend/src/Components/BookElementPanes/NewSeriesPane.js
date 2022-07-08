@@ -1,6 +1,29 @@
+import "./NewSeriesPane.css";
+import "./NewElementPaneGeneral.css";
+import axios from "axios";
+import { useState } from "react";
+
 const NewSeriesPane = () => {
+  const [seriesName, setSeriesName] = useState();
+
+  const addNewSeriesToDatabase = async () => {
+    await axios.post("http://localhost:8080/series/create", {
+      series_name: seriesName
+    }).catch(error => {
+      console.error("The following error occured!", error);
+    });
+  }
+
   return (
-    <h1>New Series Pane</h1>
+    <div id="new-element-pane">
+      <div>
+        <label htmlFor="seriesName">Series Name:</label>
+        <input type="text" id="seriesName" name="seriesName" />
+      </div>
+      <div>
+      <button className="submit-button" onClick={() => addNewSeriesToDatabase()}> Add Series </button>
+      </div>
+    </div>
   )
 }
 
