@@ -7,7 +7,7 @@ const AddBookPane = (props) => {
 
   return (
     <div id="AddBookPane">
-      <h1>Add Book Pane</h1>
+      <h1>Add a new book to the library.</h1>
       <main>
         <div className="accordion-menu">
           {accordionData.map(({ title, id, content }) => (
