@@ -8,16 +8,13 @@ import javax.persistence.Id;
 @Entity
 public class Author {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int authorID;
 	
 	String first_name;
 	String middle_name;
 	String last_name;
-	String nation;
-	
-	Integer birth;
-	Integer death;
+
 	public int getAuthorID() {
 		return authorID;
 	}
@@ -29,15 +26,6 @@ public class Author {
 	}
 	public String getLast_name() {
 		return last_name;
-	}
-	public String getNation() {
-		return nation;
-	}
-	public Integer getBirth() {
-		return birth;
-	}
-	public Integer getDeath() {
-		return death;
 	}
 	
 	
