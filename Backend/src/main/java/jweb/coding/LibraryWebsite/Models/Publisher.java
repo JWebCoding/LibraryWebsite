@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Publisher {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int publisherID;
 	
 	String publisher_name;

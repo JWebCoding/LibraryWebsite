@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Genre {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int genreID;
 	
 	String genre_name;

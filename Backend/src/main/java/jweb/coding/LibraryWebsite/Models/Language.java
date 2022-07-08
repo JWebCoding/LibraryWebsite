@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Language {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int languageID;
 	
 	String language_name;
