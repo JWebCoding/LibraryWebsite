@@ -5,18 +5,19 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import jweb.coding.LibraryWebsite.Interfaces.GenreService;
 import jweb.coding.LibraryWebsite.Models.Genre;
-import jweb.coding.LibraryWebsite.Repsoitories.GenreRepository;
+import jweb.coding.LibraryWebsite.Repositories.GenreRepository;
 
 @Service
+@Transactional
 public class GenreServiceImpl implements GenreService{
 	@Autowired GenreRepository genreRepository;
 	@Override
-	public void createGenre(Genre genre) {
-		// TODO Auto-generated method stub
-		
+	public Genre createGenre(Genre genre) {
+		return genreRepository.save(genre);
 	}
 
 	@Override

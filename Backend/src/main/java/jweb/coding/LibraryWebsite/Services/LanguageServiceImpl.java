@@ -5,18 +5,19 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import jweb.coding.LibraryWebsite.Interfaces.LanguageService;
 import jweb.coding.LibraryWebsite.Models.Language;
-import jweb.coding.LibraryWebsite.Repsoitories.LanguageRepository;
+import jweb.coding.LibraryWebsite.Repositories.LanguageRepository;
 
 @Service
+@Transactional
 public class LanguageServiceImpl implements LanguageService{
 	@Autowired LanguageRepository languageRepository;
 	@Override
-	public void createLanguage(Language language) {
-		// TODO Auto-generated method stub
-		
+	public Language createLanguage(Language language) {
+		return languageRepository.save(language);
 	}
 
 	@Override

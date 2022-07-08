@@ -5,18 +5,19 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import jweb.coding.LibraryWebsite.Interfaces.PublisherService;
 import jweb.coding.LibraryWebsite.Models.Publisher;
-import jweb.coding.LibraryWebsite.Repsoitories.PublisherRepository;
+import jweb.coding.LibraryWebsite.Repositories.PublisherRepository;
 
 @Service
+@Transactional
 public class PublisherServiceImpl implements PublisherService{
 	@Autowired PublisherRepository publisherRepository;
 	@Override
-	public void createPublisher(Publisher publisher) {
-		// TODO Auto-generated method stub
-		
+	public Publisher createPublisher(Publisher publisher) {
+		return publisherRepository.save(publisher);
 	}
 
 	@Override
