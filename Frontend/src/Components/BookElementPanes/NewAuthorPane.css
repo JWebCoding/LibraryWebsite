@@ -1,0 +1,14 @@
+#firstName{
+  min-width: 185px;
+  max-width: 185px;
+}
+
+#middleName{
+  min-width: 100px;
+  max-width: 100px;
+}
+
+#lastName{
+  min-width: 185px;
+  max-width: 185px;
+}

@@ -1,0 +1,68 @@
+#new-element-pane {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#new-element-pane > div {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  margin-bottom: 5px;
+  justify-content: center;
+}
+
+#new-element-pane > div > label {
+  font-size: 34px;
+  color: var(--accent-color);
+  margin-right: 4px;
+  margin-left: 15px;
+}
+
+#new-element-pane > div > input , button {
+  height: 33px;
+  border-radius: 7px;
+  font-size: 24px;
+  padding-top: 3px;
+  padding-right: 5px;
+  padding-left: 5px;
+
+}
+
+.sub-div {
+  display: flex;
+  justify-content: baseline;
+}
+
+.sub-div > label {
+  color:rgb(172, 155, 59);
+  font-size: 25px;
+  margin-top: 8px;
+  margin-right: 4px;
+  margin-left: 8px;
+  text-align: center;
+}
+
+.radio-button {
+  margin-top: 7px;
+  width: 20px;
+}
+
+.select-box, select {
+  border-radius: 15px;
+  font-size: 17px;
+  padding-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 4px;
+}
+
+.submit-button {
+  background-color: var(--accent-color);
+  height: 39px;
+}
+
+.submit-button:hover {
+  transition: background-color 0.5s;
+  background-color: #fdcf5b;
+}
