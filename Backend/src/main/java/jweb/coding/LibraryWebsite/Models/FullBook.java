@@ -6,13 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
-import lombok.Builder;
-import lombok.Data;
-
 @Entity
-public class Book {
+public class FullBook {
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@NotEmpty
 	int bookID;
 	
 	@NotEmpty
@@ -23,54 +22,80 @@ public class Book {
 	Integer edition;
 	int format;
 	int pages;
-	int authorID;
-	int publisherID;
-	int seriesID;
-	int genreID;
-	int languageID;
 	int copyright;
+
+	String series_name;
+	String author;
+	String first_name;
+	String middle_name;
+	String last_name;
+	String publisher_name;
+	String genre_name;
 	
-	public Book() {
-		
-	}
+	int genre_type;
 
 	public int getBookID() {
 		return bookID;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public String getIsbn() {
 		return isbn;
 	}
+
 	public Integer getSeries_part() {
 		return series_part;
 	}
+
 	public Integer getEdition() {
 		return edition;
 	}
+
 	public int getFormat() {
 		return format;
 	}
+
 	public int getPages() {
 		return pages;
 	}
-	public int getAuthorID() {
-		return authorID;
-	}
-	public int getPublisherID() {
-		return publisherID;
-	}
-	public int getSeriesID() {
-		return seriesID;
-	}
-	public int getGenreID() {
-		return genreID;
-	}
-	public int getLanguageID() {
-		return languageID;
-	}
+
 	public int getCopyright() {
 		return copyright;
 	}
+
+	public String getSeries_name() {
+		return series_name;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public String getFirst_name() {
+		return first_name;
+	}
+
+	public String getMiddle_name() {
+		return middle_name;
+	}
+
+	public String getLast_name() {
+		return last_name;
+	}
+
+	public String getPublisher_name() {
+		return publisher_name;
+	}
+
+	public String getGenre_name() {
+		return genre_name;
+	}
+
+	public int getGenre_type() {
+		return genre_type;
+	}
+
 }
