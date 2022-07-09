@@ -1,20 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import Select from "react-select";
-import httpCommon from "../../services/http-common";
-import libraryService from "../../services/library.service";
-
+import NewBookPaneMethods from "./NewBookPaneMethods";
+import NotificationBox from "./NotificationBox";
 import "./NewBookPane.css";
 import "./NewElementPaneGeneral.css";
 
+
 const NewBookPane = (props) => {
-  const authorListRef=useRef(null)
   
   // Hooks for select menu content
   const [authorNamesList, setAuthorNamesList]=useState([]);
   const [publisherNamesList, setPublisherNamesList]=useState([]);
-  const [nonFictionGenreNamesList, setNonFictionGenreNamesList]=useState([]);
-  const [fictionGenreNamesList, setFictionGenreNamesList]=useState([]);
+  const [combinedGenreNamesList, setCombinedGenreNamesList]=useState([]);
   const [languageNamesList, setLanguageNamesList]=useState([]);
   const [seriesNamesList, setSeriesNamesList]=useState([]);
 
@@ -37,111 +35,60 @@ const NewBookPane = (props) => {
   const genreOptions=[
     {value: "Non-Fiction", label: "Non-Fiction"}, {value: "Fiction", label: "Fiction"}];
 
-  // Load content for all select boxes on load.
-  useEffect(() => {(async () => {
-    try{
-      getAuthors();
-      getGenres();
-      getLanguages();
-      getPublishers();
-      getSeries();
-    } catch(e) {
-      printErrors(e);
-    }
+  useEffect(() => {( () => {
+    fillElementLists();
     })();
   }, []);
 
-  const getAuthors = async () => {
-    // Get data from server.
-    const response = (await libraryService.getAllAuthors()).data;
-
-    let authorsArray=[];
-
-    // Iterate through response, combine the name elements and then 
-    // create a new array of the name and ID to be added to state.
-    response.forEach(element => {
-      let fullName;
-
-      if(element.middle_name === null){
-        fullName = (element.first_name+" "+element.last_name);
-      } else {
-        fullName = (element.first_name+" "+element.middle_name+" "+element.last_name);
-      }
-
-      // Create temporay object of the Fullname and its 
-      // associated ID then push them to the larger array.
-      let tempObject={ value: element.authorID, label:fullName};
-      authorsArray.push(tempObject);
-    });
-
-    // Add the final array to state
-    setAuthorNamesList(authorsArray);
-  }
-
-  const getGenres = async () => {
-    const response = (await libraryService.getAllGenres()).data;
-    let nonFictionGenresArray=[];
-    let fictionGenresArray=[];
-
-    // Iterate through the response and filter the genres into 
-    // seperate arrays based on their type.
-    response.forEach(element => {
-      let tempObject={ value: element.genreID, label: element.genre_name};
-      if(element.genre_type === 1){
-        nonFictionGenresArray.push(tempObject);
-      }else {
-        fictionGenresArray.push(tempObject);
-      }
-    });
-
-    // Add the final arrays to their respective states
-    setNonFictionGenreNamesList(nonFictionGenresArray);
-    setFictionGenreNamesList(fictionGenresArray);
-  }
-
-  const getLanguages = async () => {
-    const response = (await libraryService.getAllLanguages()).data;
-    let languagesArray=[];
-
-    response.forEach(element => {
-      let tempObject={ value: element.languageID, label: element.language_name};
-      languagesArray.push(tempObject);
-    });
-    
-    setLanguageNamesList(languagesArray);
-  }
-
-  const getPublishers = async () => {
-    const response = (await libraryService.getAllPublishers()).data;
-    let publishersArray=[];
-
-    response.forEach(element => {
-      let tempObject={ value: element.publisherID, label: element.publisher_name};
-      publishersArray.push(tempObject);
-    });
-    
-    setPublisherNamesList(publishersArray);
-  }
-
-  const getSeries = async () => {
-    const response = (await libraryService.getAllSeries()).data;
-    let seriesArray=[];
-
-    response.forEach(element => {
-      let tempObject={ value: element.seriesID, label: element.series_name};
-      seriesArray.push(tempObject);
-    });
-    
-    setSeriesNamesList(seriesArray);
-  }
-
-  const determineGenreSelectContents =(choice)=> {
-    if(choice==="Non-Fiction"){
-      genreSelectRef.options=[nonFictionGenreNamesList];
-    } else {
-      genreSelectRef.options=[fictionGenreNamesList];
+  const fillElementLists = async () => {
+    // The following get values for each of the select menus -
+    // and then add the values to their respective lists.
+    try{
+      await NewBookPaneMethods.getAuthors().then(value =>{
+        setAuthorNamesList(value);
+      })
+    } catch(e) {
+      printErrors(e);
     }
+
+    try{
+      await NewBookPaneMethods.getGenres().then(value =>{
+        setCombinedGenreNamesList([
+          {label:"Non-Fiction", options: value[0]},
+          {label:"Fiction", options: value[1]}]
+        )
+      })
+    } catch(e) {
+      printErrors(e);
+    }
+
+    
+    try{
+      await NewBookPaneMethods.getLanguages().then(value =>{
+        setLanguageNamesList(value);
+      })
+    } catch(e) {
+      printErrors(e);
+    }
+
+    try{
+      await NewBookPaneMethods.getPublishers().then(value =>{
+        setPublisherNamesList(value);
+      })
+    } catch(e) {
+      printErrors(e);
+    }
+
+    try{
+      await NewBookPaneMethods.getSeries().then(value =>{
+        setSeriesNamesList(value);
+      })
+    } catch(e) {
+      printErrors(e);
+    }
+
   }
+
 
   const addNewBookToDatabase = async () => {
     await axios.post("http://localhost:8080/books/create", {
@@ -163,14 +110,14 @@ const NewBookPane = (props) => {
     
   }
 
-  const testPrint = (thingToPrint) => {
-    console.log(thingToPrint)
+  function printErrors(error){
+    console.log("Error Stack:", error.stack);
+    console.log("Error Name:", error.name);
+    console.log("Error Message:", error.message);
   }
 
-  function printErrors(error){
-    console.log("Error", error.stack);
-    console.log("Error", error.name);
-    console.log("Error", error.message);
+  const testPrint = () =>{
+    console.log(combinedGenreNamesList);
   }
 
   return (
@@ -219,11 +166,8 @@ const NewBookPane = (props) => {
           value={"0"} onChange={(e)=> setBookFormat(e.target.value)}/>
         </div>
         
-        <label htmlFor="genreTypeSelect">Genre:</label>
-        <Select options={genreOptions} defaultValue={genreOptions[0]} id="genre-type-select" className="select-box"
-        onChange={(choice)=> determineGenreSelectContents(choice.value)} />
-
-        <Select ref={genreSelectRef} options={nonFictionGenreNamesList} id="genre-select" className="select-box"
+        <label htmlFor="genre-select">Genre:</label>
+        <Select ref={genreSelectRef} options={combinedGenreNamesList} id="genre-select" className="select-box" name="genre-select"
         onChange={(choice) => setBookGenre(choice.value)}/>
       </div>
 
@@ -242,7 +186,9 @@ const NewBookPane = (props) => {
       </div>
       <div>
         <button className="submit-button" onClick={() => addNewBookToDatabase()}>Add Book</button>
+        <button onClick={()=>testPrint()}>TEST</button>
       </div>
+      {/* <NotificationBox /> */}
     </div>
   )
 };
