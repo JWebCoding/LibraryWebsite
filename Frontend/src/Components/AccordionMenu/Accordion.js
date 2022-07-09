@@ -5,15 +5,8 @@ import "./Accordion.css";
 const Accordion = ({title, id, content}) => {
   const [isActive, setIsActive]=useState(false);
 
-  const setBorderStyle = (givenID) => {
+  const setBorderStyle = () => {
     setIsActive(!isActive);
-    if(isActive){
-      document.getElementById({givenID}).style.borderBottomLeftRadius="10px";
-      document.getElementById({givenID}).style.borderBottomRightRadius="10px";
-    } else {
-      document.getElementById({givenID}).style.borderBottomLeftRadius="0px";
-      document.getElementById({givenID}).style.borderBottomRightRadius="0px";
-    }
   }
   return (
     
