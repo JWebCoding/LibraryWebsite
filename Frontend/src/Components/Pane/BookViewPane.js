@@ -3,6 +3,7 @@ import Table from "../Table/Table";
 import "./BookViewPane.css";
 import { columns } from "../../Data/TableColumns";
 import libraryService from "../../services/library.service";
+import ErrorBoundary from "./ErrorBoundary";
 
 const BookViewPane = (props) => {
 
@@ -58,7 +59,7 @@ const BookViewPane = (props) => {
   }
 
   return (
-    <React.Fragment>
+    <ErrorBoundary>
       <div id="BookViewPane">
         <h1 id="PaneTitle">The Collection</h1>
         <div id="Search-Bar">
@@ -76,7 +77,7 @@ const BookViewPane = (props) => {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </ErrorBoundary>
   );
 };
 
