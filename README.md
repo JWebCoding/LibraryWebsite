@@ -2,7 +2,7 @@
 
 ## Overview:
 
-	This website acts as a companion piece to the dekstop application. Where the desktop app's role 
+	This website acts as a companion piece to the [dekstop application](https://github.com/JWebCoding/LibraryDesktop). Where the desktop app's role 
 	is to facilitate nearly any form of interaction I may ever need with the database. The 
 	website's purpose is to offer a muchmore streamlined, convenient and accessible form of access 
 	to the two most importan functions of the dekstop application; those being the ability to view 
