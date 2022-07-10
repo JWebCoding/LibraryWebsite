@@ -5,7 +5,7 @@ import { columns } from "../../Data/TableColumns";
 import libraryService from "../../services/library.service";
 import ErrorBoundary from "./ErrorBoundary";
 
-const BookViewPane = (props) => {
+function BookViewPane(props) {
 
   // Hooks
   const [bookInfo, setBookInfo] = useState([]);
@@ -22,17 +22,21 @@ const BookViewPane = (props) => {
   }, []);
 
   const searchForBooks = async () => {
-    const response = await libraryService.searchForBooks(searchInfo);
-    fillTable(response.data);
+    try{
+      const response = await libraryService.searchForBooks(searchInfo);
+      fillTable(response.data);
+    } catch(e){
+      printErrors(e);
+    }
   }
 
   const showLastTenBooksHandler = async () => {
-    const response = await libraryService.getTenBooks();
-    fillTable(response.data);
-  }
-
-  function fillTable(bookData){
-    setBookInfo(bookData);
+    try{
+      const response = await libraryService.getTenBooks();
+      fillTable(response.data);
+    } catch(e){
+      printErrors(e);
+    }
   }
 
   const showAllBooksHandler = async () => {
@@ -44,18 +48,22 @@ const BookViewPane = (props) => {
     }
   }
 
+  function fillTable(bookData){
+    setBookInfo(bookData);
+  }
+
   const bookDetailHandler = () => {
     props.openBookDetailsModal();
   };
+
+  const handleChange = (event) => {
+    setSearchInfo(event.target.value);
+  }
 
   function printErrors(error){
     console.log("Error", error.stack);
     console.log("Error", error.name);
     console.log("Error", error.message);
-  }
-
-  const handleChange = (event) => {
-    setSearchInfo(event.target.value);
   }
 
   return (
