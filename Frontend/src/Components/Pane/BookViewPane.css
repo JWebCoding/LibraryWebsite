@@ -51,3 +51,8 @@
   font-weight: bold;
 }
 
+#error-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
