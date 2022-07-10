@@ -7,7 +7,9 @@ import "./NewBookPane.css";
 import "./NewElementPaneGeneral.css";
 
 
-const NewBookPane = (props) => {
+function NewBookPane(props) {
+
+  const [notificationList, setNotificationList]=useState([{id:1, text:"TEST"}, {id:2, text:"Test2"}, {id:3, text:"TEST"}]);
   
   // Hooks for select menu content
   const [authorNamesList, setAuthorNamesList]=useState([]);
@@ -62,7 +64,6 @@ const NewBookPane = (props) => {
       printErrors(e);
     }
 
-    
     try{
       await NewBookPaneMethods.getLanguages().then(value =>{
         setLanguageNamesList(value);
@@ -89,7 +90,6 @@ const NewBookPane = (props) => {
 
   }
 
-
   const addNewBookToDatabase = async () => {
     await axios.post("http://localhost:8080/books/create", {
     title: bookTitle, 
@@ -105,7 +105,7 @@ const NewBookPane = (props) => {
     pages: bookPages,
     languageID: bookLanguage})
     .catch(error => {
-      console.error("The following error occured!", error);
+      console.error("The following error occured when adding a Book!", error);
     });
     
   }
@@ -114,10 +114,6 @@ const NewBookPane = (props) => {
     console.log("Error Stack:", error.stack);
     console.log("Error Name:", error.name);
     console.log("Error Message:", error.message);
-  }
-
-  const testPrint = () =>{
-    console.log(combinedGenreNamesList);
   }
 
   return (
@@ -186,9 +182,8 @@ const NewBookPane = (props) => {
       </div>
       <div>
         <button className="submit-button" onClick={() => addNewBookToDatabase()}>Add Book</button>
-        <button onClick={()=>testPrint()}>TEST</button>
       </div>
-      {/* <NotificationBox /> */}
+      <NotificationBox id="book-notification-box" notificationList={notificationList}/>
     </div>
   )
 };
