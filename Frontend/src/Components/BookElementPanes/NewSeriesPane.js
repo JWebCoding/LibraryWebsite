@@ -3,14 +3,14 @@ import "./NewElementPaneGeneral.css";
 import axios from "axios";
 import { useState } from "react";
 
-const NewSeriesPane = () => {
+function NewSeriesPane() {
   const [seriesName, setSeriesName] = useState();
 
   const addNewSeriesToDatabase = async () => {
     await axios.post("http://localhost:8080/series/create", {
       series_name: seriesName
     }).catch(error => {
-      console.error("The following error occured!", error);
+      console.error("The following error occured when adding a Series!", error);
     });
   }
 

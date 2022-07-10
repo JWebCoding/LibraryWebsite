@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTable, useSortBy, useRowSelect, usePagination, useBlockLayout} from "react-table";
 import "./Table.css";
 
-const Table = ({ columns, data }) => {
+function Table({ columns, data }) {
 
   const { getTableProps, getTableBodyProps, headerGroups, prepareRow, page, 
     gotoPage, previousPage, nextPage, pageOptions, state: {pageIndex, pageSize}, 

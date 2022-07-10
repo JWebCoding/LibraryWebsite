@@ -3,7 +3,7 @@ import "./NewElementPaneGeneral.css";
 import axios from "axios";
 import { useState } from "react";
 
-const NewLanguagePane = (props) => {
+function NewLanguagePane(props) {
   const [languageName, setLanguageName] = useState("");
   const [languageSuffix, setLanguageSuffix] = useState("");
 
@@ -12,7 +12,7 @@ const NewLanguagePane = (props) => {
       language_name: languageName,
       language_suffix: languageSuffix
     }).catch(error => {
-      console.error("The following error occured!", error);
+      console.error("The following error occured when adding a Language!", error);
     });
   }
 

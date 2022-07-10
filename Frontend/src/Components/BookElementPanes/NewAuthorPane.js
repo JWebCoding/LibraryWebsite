@@ -5,7 +5,7 @@ import libraryService from "../../services/library.service";
 import "./NewAuthorPane.css";
 import "./NewElementPaneGeneral.css";
 
-const NewAuthorPane = (props) => {
+function NewAuthorPane(props) {
 
   const [firstName, setFirstName] = useState("");
   const [middleName, setMiddleName] = useState("");
@@ -17,7 +17,7 @@ const NewAuthorPane = (props) => {
       middle_name: middleName,
       last_name: lastName})
     .catch(error => {
-      console.error("The following error occured!", error);
+      console.error("The following error occured when adding an Author!", error);
     });
   }
 

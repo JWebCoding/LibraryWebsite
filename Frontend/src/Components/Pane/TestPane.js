@@ -4,7 +4,7 @@ import axios from "axios";
 
 // This pane is a testing ground for various ideas.
 
-const TestPane =()=>{
+function TestPane() {
 
   const[bookTitle, setBookTitle] = React.useState();
   const[bookInfo, setBookInfo] = React.useState({});

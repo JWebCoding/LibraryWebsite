@@ -3,7 +3,7 @@ import Accordion from "../AccordionMenu/Accordion";
 import { accordionData } from "../../Data/AccordionData";
 import "./AddBookPane.css";
 
-const AddBookPane = (props) => {
+function AddBookPane(props) {
 
   return (
     <div id="AddBookPane">

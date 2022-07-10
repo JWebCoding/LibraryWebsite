@@ -4,7 +4,7 @@ import Select from "react-select";
 import { useState } from "react";
 import axios from "axios";
 
-const NewGenrePane = (props) => {
+function NewGenrePane(props) {
   const [genreType, setGenreType] = useState();
   const [genreName, setGenreName] = useState("");
 
@@ -16,7 +16,7 @@ const NewGenrePane = (props) => {
         genre_name: genreName,
         genre_type: genreType
       }).catch(error => {
-      console.error("The following error occured!", error);
+      console.error("The following error occured when adding a Genre!", error);
     });
     }
 

@@ -10,7 +10,7 @@ import SignIn from "./Components/Modal/SignIn";
 import BookDetails from "./Components/Modal/BookDetails";
 import { BrowserRouter, Route , Routes} from "react-router-dom";
 
-const App = ()=>{
+function App() {
 
 	const [currentPaneName, setCurrentPaneName]=useState("MainPane");
 	const [SignInModalOpen, setSignInModalOpen]=useState(false);

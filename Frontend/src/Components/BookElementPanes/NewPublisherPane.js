@@ -3,7 +3,7 @@ import "./NewElementPaneGeneral.css";
 import axios from "axios";
 import { useState } from "react";
 
-const NewPublisherPane = (props) => {
+function NewPublisherPane(props) {
   const [publisherName, setPublisherName] = useState("");
   const [publisherLocation, setPublisherLocation] = useState("");
 
@@ -12,7 +12,7 @@ const NewPublisherPane = (props) => {
       publisher_name: publisherName,
       publisher_location: publisherLocation
     }).catch(error => {
-      console.error("The following error occured!", error);
+      console.error("The following error occured when adding a Publisher!", error);
     });
   }
 

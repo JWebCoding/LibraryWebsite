@@ -2,7 +2,7 @@ import React from "react";
 import './MainPane.css';
 import ImageBox from "../ImageBox/ImageBox";
 
-const MainPane=(props)=>{
+function MainPane(props) {
     let welcome=""
     if(!props.user==""){
         welcome=`Welcome ${props.user}!`;
