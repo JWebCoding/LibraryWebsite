@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jweb.coding.LibraryWebsite.Interfaces.LanguageService;
-import jweb.coding.LibraryWebsite.Models.Genre;
 import jweb.coding.LibraryWebsite.Models.Language;
 
 @Transactional

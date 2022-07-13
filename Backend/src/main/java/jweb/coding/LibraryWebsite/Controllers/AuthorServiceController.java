@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import jweb.coding.LibraryWebsite.Services.AuthorServiceImpl;
 import jweb.coding.LibraryWebsite.Interfaces.AuthorService;
 import jweb.coding.LibraryWebsite.Models.Author;
-import jweb.coding.LibraryWebsite.Models.Book;
 
 @RestController
 @RequestMapping(path="/authors")
