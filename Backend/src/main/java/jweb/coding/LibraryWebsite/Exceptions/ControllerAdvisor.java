@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import jweb.coding.LibraryWebsite.Models.Book;
-
 @ControllerAdvice
 public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 	
@@ -25,6 +23,15 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 		Map<String, Object> errorMap = new LinkedHashMap<>();
 		errorMap.put("time",LocalDateTime.now());
 		errorMap.put("message","Author not Found");
+		
+		return new ResponseEntity<>(errorMap, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(value = {AuthorsNotFoundException.class})
+	public ResponseEntity<Object> handleAuthorsNotFoundExcpetion(AuthorsNotFoundException ex, WebRequest request) {
+		Map<String, Object> errorMap = new LinkedHashMap<>();
+		errorMap.put("time",LocalDateTime.now());
+		errorMap.put("message","No Authors Found");
 		
 		return new ResponseEntity<>(errorMap, HttpStatus.NOT_FOUND);
 	}
@@ -46,11 +53,21 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 		
 		return new ResponseEntity<>(errorMap, HttpStatus.NOT_FOUND);
 	}
+	
 	@ExceptionHandler(value = {GenreNotFoundException.class})
 	public ResponseEntity<Object> handleGenreNotFoundExcpetion(GenreNotFoundException ex, WebRequest request) {
 		Map<String, Object> errorMap = new LinkedHashMap<>();
 		errorMap.put("time",LocalDateTime.now());
 		errorMap.put("message","Genre not Found");
+		
+		return new ResponseEntity<>(errorMap, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(value = {GenresNotFoundException.class})
+	public ResponseEntity<Object> handleBooksNotFoundExcpetion(GenresNotFoundException ex, WebRequest request) {
+		Map<String, Object> errorMap = new LinkedHashMap<>();
+		errorMap.put("time",LocalDateTime.now());
+		errorMap.put("message","No Genres Found");
 		
 		return new ResponseEntity<>(errorMap, HttpStatus.NOT_FOUND);
 	}
@@ -64,11 +81,29 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(errorMap, HttpStatus.NOT_FOUND);
 	}
 	
+	@ExceptionHandler(value = {LanguagesNotFoundException.class})
+	public ResponseEntity<Object> handleLanguagesNotFoundExcpetion(LanguagesNotFoundException ex, WebRequest request) {
+		Map<String, Object> errorMap = new LinkedHashMap<>();
+		errorMap.put("time",LocalDateTime.now());
+		errorMap.put("message","No Languages Found");
+		
+		return new ResponseEntity<>(errorMap, HttpStatus.NOT_FOUND);
+	}
+	
 	@ExceptionHandler(value = {PublisherNotFoundException.class})
 	public ResponseEntity<Object> handlePublisherNotFoundExcpetion(PublisherNotFoundException ex, WebRequest request) {
 		Map<String, Object> errorMap = new LinkedHashMap<>();
 		errorMap.put("time",LocalDateTime.now());
 		errorMap.put("message","Publisher not Found");
+		
+		return new ResponseEntity<>(errorMap, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(value = {PublishersNotFoundException.class})
+	public ResponseEntity<Object> handlePublishersNotFoundExcpetion(PublishersNotFoundException ex, WebRequest request) {
+		Map<String, Object> errorMap = new LinkedHashMap<>();
+		errorMap.put("time",LocalDateTime.now());
+		errorMap.put("message","No Books Found");
 		
 		return new ResponseEntity<>(errorMap, HttpStatus.NOT_FOUND);
 	}
