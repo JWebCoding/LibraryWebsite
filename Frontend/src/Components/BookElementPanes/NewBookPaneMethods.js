@@ -1,5 +1,4 @@
 import libraryService from "../../services/library.service";
-import ErrorReporting from "../../services/ErrorReporting";
 
 class NewBookPaneMethods {
   getAuthors = async () => {
