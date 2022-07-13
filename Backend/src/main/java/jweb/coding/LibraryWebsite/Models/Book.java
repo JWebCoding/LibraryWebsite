@@ -6,9 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
-import lombok.Builder;
-import lombok.Data;
-
 @Entity
 public class Book {
 	@Id

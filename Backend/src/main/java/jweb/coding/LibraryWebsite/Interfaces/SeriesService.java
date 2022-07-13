@@ -1,7 +1,6 @@
 package jweb.coding.LibraryWebsite.Interfaces;
 
 import java.util.List;
-import java.util.Optional;
 
 import jweb.coding.LibraryWebsite.Models.Series;
 
