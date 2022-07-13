@@ -1,8 +1,6 @@
 package jweb.coding.LibraryWebsite.Services;
 
 import java.util.List;
-import java.util.Optional;
-
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,40 +11,32 @@ import jweb.coding.LibraryWebsite.Interfaces.FullBookService;
 import jweb.coding.LibraryWebsite.Models.FullBook;
 import jweb.coding.LibraryWebsite.Repositories.FullBookRepository;
 
-
-
 @Service
 public class FullBookServiceImpl implements FullBookService{
 	@Autowired FullBookRepository fullBookRepository;
-
-	@Override
-	public void updateBook(int id, FullBook book) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteBook(int id) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
+	@SuppressWarnings("finally")
 	@Override
 	public List<FullBook> getBooks() {
-		
-		List<FullBook> bookList= fullBookRepository.getAllBooks();
-		
-		if(bookList.isEmpty()) {
-			throw new BooksNotFoundException();
-		} else {
-			return bookList;
+		List<FullBook> bookList=null;
+		try {
+			bookList= fullBookRepository.getAllBooks();
+		} catch (Exception e) {
+			printErrorMessage("getBooks",e);
+		} finally {
+			if(bookList.isEmpty()) {
+				throw new BooksNotFoundException();
+			} else {
+				return bookList;
+			}
 		}
 	}
+	
 	@SuppressWarnings("finally")
 	@Override
 	public List<FullBook> getTenBooks() {
 
-		List<FullBook> bookList= fullBookRepository.getLastTen();
+		List<FullBook> bookList=null;
 		try {
 			bookList=fullBookRepository.getLastTen();
 		} catch(Exception e) {
@@ -59,10 +49,22 @@ public class FullBookServiceImpl implements FullBookService{
 			}
 		}
 	}
-
+	
+	@SuppressWarnings("finally")
 	@Override
-	public Optional<FullBook> getSpecificBook(int id) {
-		return Optional.of(fullBookRepository.findBybookID(id).orElseThrow(() -> new BookNotFoundException(id)));
+	public FullBook getSpecificBook(int id) {
+		FullBook specificBook = null;
+		try {
+			specificBook=fullBookRepository.findById(id).get();
+		} catch(Exception e) {
+			
+		} finally {
+			if(specificBook==null) {
+				throw new BookNotFoundException(id);
+			} else {
+				return specificBook;
+			}
+		}		
 	}
 
 	@SuppressWarnings("finally")
@@ -81,19 +83,11 @@ public class FullBookServiceImpl implements FullBookService{
 				return bookList;
 			}
 		}
-		
 	}
+	
 	public void printErrorMessage(String methodName, Exception e) {
 		System.err.printf("ERROR AT %s", methodName);
 		System.err.println(e.getStackTrace());
-	}
-	
-	public boolean checkForEmptyList(List<FullBook> bookList) {
-		if(bookList.isEmpty()) {
-			throw new BooksNotFoundException();
-		} else {
-			return true;
-		}
 	}
 	
 }
