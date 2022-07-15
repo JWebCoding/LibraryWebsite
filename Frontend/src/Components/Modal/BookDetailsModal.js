@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./BookDetails.css";
-import "./Modal.css";
+import "./BookDetailsModal.css";
+import "./GeneralModal.css";
 
 const BookDetails = ({ isopen, onclose }) => {
   if (!isopen) return null;

@@ -1,30 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import "./SignIn.css";
-import "./Modal.css";
-import {userList} from "../../Data/SignInData"
-
-
+import "./SignInModal.css";
+import "./GeneralModal.css";
 
 const SignIn = ({ isopen, onclose, onSignIn }) => {
+  const [username, setUsername]=useState();
+  const [password, setPassword]=useState();
 
   const signInHandler=(props)=>{
-    let username=document.getElementById("usernameInput").value;
-    let password=document.getElementById("passwordInput").value;
-
-    for(var key in userList){
-      if(userList[key].username==username && userList[key].password==password){
-        console.log("Accepted");
-        onSignIn(userList[key].name);
-        onclose();
-        break;
-      } else {
-        console.log("Refused");
-        if(key==userList.length-1){
-          console.log("No Valid user found");
-        }
-      }
-    }
+    
   }
 
   if (!isopen) return null;
@@ -36,11 +20,13 @@ const SignIn = ({ isopen, onclose, onSignIn }) => {
         </div>
         <div className="modal-row" id="usrname">
           <label htmlFor="usernameInput">Username:</label>
-          <input type="text" id="usernameInput"></input>
+          <input type="text" id="usernameInput" 
+          onChange={(e)=>setUsername(e.target.value)}></input>
         </div>
         <div className="modal-row" id="password">
           <label htmlFor="passwordInput">Password:</label>
-          <input type="password" id="passwordInput"></input>
+          <input type="password" id="passwordInput" 
+          onChange={(e)=>setPassword(e.target.value)}></input>
         </div>
         <div className="modal-row">
           <button onClick={onclose}>Close</button>

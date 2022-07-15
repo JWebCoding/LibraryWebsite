@@ -5,10 +5,11 @@ import MainPane from "./Components/Pane/MainPane";
 import BookViewPane from "./Components/Pane/BookViewPane";
 import AddBookPane from "./Components/Pane/AddBookPane";
 import TestPane from "./Components/Pane/TestPane";
-import "./App.css";
-import SignIn from "./Components/Modal/SignIn";
-import BookDetails from "./Components/Modal/BookDetails";
+import SignInModal from "./Components/Modal/SignInModal";
+import BookDetailsModal from "./Components/Modal/BookDetailsModal";
 import { BrowserRouter, Route , Routes} from "react-router-dom";
+
+import "./App.css";
 
 function App() {
 
@@ -49,12 +50,12 @@ function App() {
 		<BrowserRouter>
 		<React.Fragment>
 			<div>
-				<SignIn 
+				<SignInModal 
 				isopen={SignInModalOpen}
 				onclose={()=>setSignInModalOpen(false)}
 				onSignIn={signInUser}
 				/>
-				<BookDetails 
+				<BookDetailsModal 
 				isopen={BookDetailsModalOpen}
 				onclose={()=>setBookDetailsModalOpen(false)}
 				/>
