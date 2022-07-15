@@ -19,7 +19,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(value = {AuthorNotFoundException.class})
-	public ResponseEntity<Object> handleauthorNotFoundExcpetion(AuthorNotFoundException ex, WebRequest request) {
+	public ResponseEntity<Object> handleAuthorNotFoundExcpetion(AuthorNotFoundException ex, WebRequest request) {
 		Map<String, Object> errorMap = new LinkedHashMap<>();
 		errorMap.put("time",LocalDateTime.now());
 		errorMap.put("message","Author not Found");
@@ -136,5 +136,14 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 		errorMap.put("errors",errors);
 		
 		return new ResponseEntity<>(errorMap,HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(value = {UserNotFoundException.class})
+	public ResponseEntity<Object> handleUserNotFoundExcpetion(UserNotFoundException ex, WebRequest request) {
+		Map<String, Object> errorMap = new LinkedHashMap<>();
+		errorMap.put("time",LocalDateTime.now());
+		errorMap.put("message","User not Found");
+		
+		return new ResponseEntity<>(errorMap, HttpStatus.NOT_FOUND);
 	}
 }
