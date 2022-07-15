@@ -55,7 +55,7 @@ public class FullBookServiceImpl implements FullBookService{
 	public FullBook getSpecificBook(int id) {
 		FullBook specificBook = null;
 		try {
-			specificBook=fullBookRepository.findById(id).get();
+			specificBook=fullBookRepository.getSpecificBook(id);
 		} catch(Exception e) {
 			
 		} finally {
