@@ -8,5 +8,5 @@ import jweb.coding.LibraryWebsite.Models.Author;
 public interface AuthorRepository extends JpaRepository<Author, Integer>{
 	List<Author> findAll();
 	
-	List<Author> findByauthorID(int authorID);
+	Author findByauthorID(int authorID);
 }

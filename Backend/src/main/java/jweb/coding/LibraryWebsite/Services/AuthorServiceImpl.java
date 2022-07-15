@@ -44,14 +44,14 @@ public class AuthorServiceImpl implements AuthorService{
 
 	@SuppressWarnings("finally")
 	@Override
-	public List<Author> getSpecificAuthor(int id) {
-		List<Author> authorList=null;
+	public Author getSpecificAuthor(int id) {
+		Author authorList=null;
 		try {
 			authorList=authorRepository.findByauthorID(id);
 		} catch (Exception e) {
 			printErrorMessage("getSpecificAuthor",e);
 		} finally {
-			if(authorList.isEmpty()) {
+			if(authorList==null) {
 				throw new AuthorNotFoundException(id);
 			} else {
 				return authorList;

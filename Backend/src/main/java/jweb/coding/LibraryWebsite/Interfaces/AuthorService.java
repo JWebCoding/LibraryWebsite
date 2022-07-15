@@ -6,6 +6,6 @@ import jweb.coding.LibraryWebsite.Models.Author;
 
 public interface AuthorService {
 	public abstract Author createAuthor(Author author);
-	public abstract List<Author> getSpecificAuthor(int id);
+	public abstract Author getSpecificAuthor(int id);
 	public abstract List<Author> getAuthors();
 }
