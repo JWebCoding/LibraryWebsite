@@ -21,7 +21,7 @@
 }
 
 #new-element-pane > div > input , button {
-  height: 33px;
+  /*height: 33px;*/
   border-radius: 7px;
   font-size: 24px;
   padding-top: 3px;

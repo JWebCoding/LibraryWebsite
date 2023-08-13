@@ -25,8 +25,8 @@ class LibraryDataService {
     return http.get("/series/all");
   }
 
-  getTenBooks() {
-    return http.get("/books/ten");
+  getTwentyBooks() {
+    return http.get("/books/twenty");
   }
   getSpecificBook(id) {
     return http.get(`/books/specific/${id}`);

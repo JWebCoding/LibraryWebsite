@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:bold");
+
+#header {
+  margin: 5px;
+  grid-row: 1;
+  grid-column: 2/13;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.title-button{
+  color: var(--accent-color);
+  font-size: 45px;
+  background: none;
+  border: none;
+  font-family: "Merriweather";
+  margin: 0px;
+}
+
+#header-buttons{
+  align-self: center;
+}
+
+.link-button {
+
+  transition: background-color 0.5s;
+  font-size: 17px;
+  font-weight: bold;
+  border-width: 3px;
+  width: 115px;
+  height: 45px;
+  margin-left: 7px;
+  margin-right: 7px;
+}

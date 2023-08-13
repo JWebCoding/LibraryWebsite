@@ -3,17 +3,17 @@ export const columns = [
   {
     Header: "Title",
     accessor: "title",
-    width: 300,
+    width: 350,
   },
   {
     Header: "Author",
-    accessor: "author",
+    accessor: "author_name",
     width: 200,
   },
   {
     Header: "Genre",
     accessor: "genre_name",
-    width: 100,
+    width: 175,
   },
   {
     Header: "Publisher",
@@ -23,16 +23,11 @@ export const columns = [
   {
     Header: "CopyRight",
     accessor: "copyright",
-    width: 125,
+    width: 115,
   },
   {
     Header: "ISBN",
     accessor: "isbn",
     width: 150,
-  },
-  {
-    Header: "Format",
-    accessor: "formatString",
-    width: 100,
-  },
+  }
 ];

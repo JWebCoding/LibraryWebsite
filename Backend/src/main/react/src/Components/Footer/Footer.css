@@ -1,0 +1,14 @@
+#footer {
+  position: absolute;
+  bottom: 0;
+}
+#footerText{
+  margin-bottom: 7px;
+}
+#footerText > p {
+  margin: 3px;
+  margin-left: 7px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--accent-color);
+}
