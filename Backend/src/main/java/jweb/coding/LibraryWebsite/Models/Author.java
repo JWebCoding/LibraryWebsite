@@ -10,23 +10,15 @@ public class Author {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int authorID;
-	
-	String first_name;
-	String middle_name;
-	String last_name;
+	String author_name;
 
 	public int getAuthorID() {
 		return authorID;
 	}
-	public String getFirst_name() {
-		return first_name;
+	public String getAuthor_name() {
+		return author_name;
 	}
-	public String getMiddle_name() {
-		return middle_name;
-	}
-	public String getLast_name() {
-		return last_name;
-	}
+
 	
 	
 }

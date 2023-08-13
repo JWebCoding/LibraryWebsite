@@ -34,13 +34,13 @@ public class FullBookServiceImpl implements FullBookService{
 	
 	@SuppressWarnings("finally")
 	@Override
-	public List<FullBook> getTenBooks() {
+	public List<FullBook> getTwentyBooks() {
 
 		List<FullBook> bookList=null;
 		try {
-			bookList=fullBookRepository.getLastTen();
+			bookList=fullBookRepository.getLastTwenty();
 		} catch(Exception e) {
-			printErrorMessage("getLastTen",e);
+			printErrorMessage("getLastTwenty",e);
 		} finally {
 			if(bookList.isEmpty()) {
 				throw new BooksNotFoundException();

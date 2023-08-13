@@ -25,10 +25,7 @@ public class FullBook {
 	int copyright;
 
 	String series_name;
-	String author;
-	String first_name;
-	String middle_name;
-	String last_name;
+	String author_name;
 	String publisher_name;
 	String genre_name;
 	
@@ -70,20 +67,8 @@ public class FullBook {
 		return series_name;
 	}
 
-	public String getAuthor() {
-		return author;
-	}
-
-	public String getFirst_name() {
-		return first_name;
-	}
-
-	public String getMiddle_name() {
-		return middle_name;
-	}
-
-	public String getLast_name() {
-		return last_name;
+	public String getAuthor_name() {
+		return author_name;
 	}
 
 	public String getPublisher_name() {

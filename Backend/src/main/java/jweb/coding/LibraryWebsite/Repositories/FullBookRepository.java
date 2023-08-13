@@ -15,8 +15,8 @@ public interface FullBookRepository extends JpaRepository<FullBook, Integer>{
 	@Procedure("GetSpecificBook")
 	FullBook getSpecificBook(int bookID);
 	
-	@Procedure("GetLastTenBooks")
-	List<FullBook> getLastTen();
+	@Procedure("GetLastTwentyBooks")
+	List<FullBook> getLastTwenty();
 	
 	@Procedure("SearchForBooks")
 	List<FullBook> searchForBooks(String searchTerm);

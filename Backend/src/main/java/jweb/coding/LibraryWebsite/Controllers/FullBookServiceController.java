@@ -27,9 +27,9 @@ public class FullBookServiceController {
 		return new ResponseEntity<>(bookServicesImpl.getBooks(), HttpStatus.OK);
 	}
 
-	@GetMapping(path = "/ten")
-	public ResponseEntity<Object> getTenBooks() {
-		return new ResponseEntity<>(bookServicesImpl.getTenBooks(), HttpStatus.OK);
+	@GetMapping(path = "/twenty")
+	public ResponseEntity<Object> getTwentyBooks() {
+		return new ResponseEntity<>(bookServicesImpl.getTwentyBooks(), HttpStatus.OK);
 	}
 
 	@GetMapping(path = "/specific/{id}")
