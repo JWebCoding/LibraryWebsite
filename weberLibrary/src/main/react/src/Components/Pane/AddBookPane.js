@@ -1,22 +1,26 @@
-import React from "react";
-import Accordion from "../AccordionMenu/Accordion";
-import { accordionData } from "../../Data/AccordionData";
-import "./AddBookPane.css";
+import React, {useState} from "react";
+import AddBookProcessSelection from "./AddBookProcessSelection";
+import AddBookManualPane from "./AddBookManualPane";
+import AddBookAutomaticPane from "./AddBookAutomaticPane";
 
-function AddBookPane(props) {
+function AddBookPane() {
 
-  return (
-    <div id="AddBookPane">
-      <h1>Add a new book to the library.</h1>
-      <main>
-        <div className="accordion-menu">
-          {accordionData.map(({ title, id, content }) => (
-          <Accordion title={title} id={id} content={content} />
-          ))}
+    const switchPane = async (selectedPane) => {
+        if(selectedPane==="manual"){
+            setCurrentPane(<AddBookManualPane />);
+        } else if (selectedPane === "automatic"){
+            setCurrentPane(<AddBookAutomaticPane />)
+        }
+    }
+
+    const [currentPane, setCurrentPane]=useState(<AddBookProcessSelection switchPane={switchPane}/>);
+
+    return (
+        <div>
+            {currentPane}
         </div>
-      </main>
-    </div>
-  );
-};
+    )
+
+}
 
 export default AddBookPane;
