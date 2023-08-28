@@ -1,0 +1,30 @@
+.previewPane {
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 7px;
+    border-color: #F8B500;
+    background: #a0a0a0;
+    width:325px;
+    height: 400px;
+    margin: 25px;
+}
+
+.previewPane:hover {
+    background-color: #696868;
+    transition: 0.5s;
+
+}
+p {
+    font-size: 18px;
+    margin: 5px 11px;
+    text-align: left;
+    text-overflow: ellipsis;
+
+}
+
+.firstLine {
+    margin-top: 15px;
+}
