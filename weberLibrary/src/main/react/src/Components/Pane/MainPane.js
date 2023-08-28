@@ -4,7 +4,7 @@ import ImageBox from "../ImageBox/ImageBox";
 
 function MainPane(props) {
     let welcome=""
-    if(!props.user==""){
+    if(!props.user===""){
         welcome=`Welcome ${props.user}!`;
     } else {
         welcome="Welcome!";
