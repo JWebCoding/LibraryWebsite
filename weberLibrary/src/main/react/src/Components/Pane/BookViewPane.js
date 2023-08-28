@@ -14,7 +14,7 @@ function BookViewPane(props) {
 
   useEffect(() => {(async () => {
     try{
-      showLastTwentyBooksHandler();
+      await showLastTwentyBooksHandler();
     } catch(e) {
       printErrors(e);
     }
@@ -87,6 +87,6 @@ function BookViewPane(props) {
       </div>
     </ErrorBoundary>
   );
-};
+}
 
 export default BookViewPane;
