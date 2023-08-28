@@ -1,0 +1,4 @@
+#AddBookAutomatic {
+    display: grid;
+    grid-template-columns: [first] 50px [two] 1fr [three] 50px [end];
+}
