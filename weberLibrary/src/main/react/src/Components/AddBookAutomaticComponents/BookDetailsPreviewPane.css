@@ -17,14 +17,34 @@
     transition: 0.5s;
 
 }
-p {
+
+.bookElementSection {
+    display: inline-block;
+}
+
+span {
     font-size: 18px;
-    margin: 5px 11px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 11px;
     text-align: left;
     text-overflow: ellipsis;
+}
 
+.elementName {
+    margin-left: 11px;
+    margin-right: 0;
 }
 
 .firstLine {
     margin-top: 15px;
+}
+
+.lastLine {
+    flex-grow: 1;
+}
+
+#idField {
+    font-size: 10px;
+    text-align: center;
 }

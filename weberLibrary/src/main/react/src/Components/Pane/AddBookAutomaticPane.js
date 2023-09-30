@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import AddBookAutomaticSearch from "../AddBookAutomaticComponents/AddBookAutomaticSearch";
 import AddBookAutomaticDisplayResults from "../AddBookAutomaticComponents/AddBookAutomaticDisplayResults";
-import AddBookAutoPreviewAndFinalize from "../AddBookAutomaticComponents/AddBookAutoPreviewAndFinalize";
+import AddBookAutoPreviewAndFinalize from "../AddBookAutomaticComponents/AddBookAutoPreviewAndAdd";
 import "./AddBookAutomaticPane.css"
 
 
@@ -17,6 +17,10 @@ function AddBookAutomaticPane() {
             switchToDisplayResults()
         }
     },[queryResultData])
+
+    useEffect(() =>{
+        console.log(queryResultData[selectedBookData])
+    },[selectedBookData])
 
     function switchPaneHandler(paneName){
         if (paneName === "search"){

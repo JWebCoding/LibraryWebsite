@@ -1,27 +1,28 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import BookDetailsPreviewPane from "./BookDetailsPreviewPane";
 import "./AddBookAutomaticDisplayResults.css"
 
 function AddBookAutomaticDisplayResults(props){
-    useEffect(()=>{console.log(props.queryResultsData)});
+    function bookDataHandler(selectedID) {
+        props.setSelectedBookData(selectedID-1);
+
+    }
     return (
         <section id={"displayResults"}>
             <h1>Display Results</h1>
             <div id={"previewPanes"}>
                 {props.queryResultsData.map((book) => (
-                    // <BookDetailsPreviewPane copyright={props.queryResultsData.copyright}
-                    //                         publisher={props.queryResultsData.publisher}
-                    //                         title={props.queryResultsData.title}/>
-                    <BookDetailsPreviewPane title= {book.title}
-                        // author= {props.queryResultsData.authors[0]}
+                    <BookDetailsPreviewPane bookDataHandler={bookDataHandler}
+                                            title= {book.title}
                                             publisher= {book.publisher}
                                             copyright= {book.copyright}
-                        // isbn= {97845674}
+                                            author={book.author}
+                                            isbn={book.isbn}
+                                            id={book.id}
                     />
                 ))}
             </div>
         </section>
-
     );
 }
 
