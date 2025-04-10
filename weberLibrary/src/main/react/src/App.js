@@ -71,6 +71,7 @@ function App() {
 				{/* <LoadPaneHandler /> */}
 				<div>
 						<Routes>
+							<Route exact path="/" element={<MainPane user={userName} />} />
 							<Route exact path="/main" element={<MainPane user={userName} />} />
 							<Route exact path="/view" element={<BookViewPane openBookDetailsModal={openBookDetailsModal} />} />
 							<Route exact path="/add" element={<AddBookPane />} />
