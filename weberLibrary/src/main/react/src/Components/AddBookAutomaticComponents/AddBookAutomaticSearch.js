@@ -78,11 +78,13 @@ function AddBookAutomaticSearch(props){
                             // Set required values
                             id: idValue,
                             title: data.volumeInfo.title,
+                            genre: data.volumeInfo.categories[0],
                             subtitle: subtitle,
                             publisher: data.volumeInfo.publisher,
-                            copyright: data.volumeInfo.publishedDate,
+                            copyright: data.volumeInfo.publishedDate.slice(0,4),
                             author: data.volumeInfo.authors[0],
-                            isbn: data.volumeInfo.industryIdentifiers[0].identifier,
+                            isbn: data.volumeInfo.industryIdentifiers[0].identifier.replace(
+                                /[ABCDEFGHIJKLMNOPQRSTUVWXYZ]+:/,''),
                             language: data.volumeInfo.language,
                             pageCount: data.volumeInfo.pageCount,
                             format: format,

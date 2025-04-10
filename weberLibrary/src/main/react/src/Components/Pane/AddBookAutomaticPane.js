@@ -19,7 +19,10 @@ function AddBookAutomaticPane() {
     },[queryResultData])
 
     useEffect(() =>{
-        console.log(queryResultData[selectedBookData])
+        if(selectedBookData.length !== 0){
+            switchToPreviewAndFinalize()
+            // console.log(queryResultData[selectedBookData])
+        }
     },[selectedBookData])
 
     function switchPaneHandler(paneName){
@@ -34,6 +37,12 @@ function AddBookAutomaticPane() {
 
     function switchToDisplayResults(){
         let newPaneName="displayResults";
+        setCurrentPaneName(newPaneName);
+        setCurrentPane(switchPaneHandler(newPaneName));
+    }
+
+    function switchToPreviewAndFinalize() {
+        let newPaneName="previewAndFinalize";
         setCurrentPaneName(newPaneName);
         setCurrentPane(switchPaneHandler(newPaneName));
     }

@@ -4,7 +4,7 @@ import "./AddBookAutomaticDisplayResults.css"
 
 function AddBookAutomaticDisplayResults(props){
     function bookDataHandler(selectedID) {
-        props.setSelectedBookData(selectedID-1);
+        props.setSelectedBookData(props.queryResultsData[selectedID-1]);
 
     }
     return (
