@@ -12,7 +12,7 @@ function NewGenrePane(props) {
     {value: 1, label: "Non-Fiction"}, {value: 0, label: "Fiction"}];
 
     const addNewGenreToDatabase = async () => {
-      await axios.post("http://localhost:8080/genres/create", {
+      await axios.post("http://localhost:3000/genres/create", {
         genre_name: genreName,
         genre_type: genreType
       }).catch(error => {

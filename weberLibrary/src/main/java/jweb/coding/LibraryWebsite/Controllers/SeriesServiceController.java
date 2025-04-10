@@ -18,7 +18,7 @@ import jweb.coding.LibraryWebsite.Models.Series;
 @Transactional
 @RestController
 @RequestMapping(path="/series")
-@CrossOrigin(origins="http://localhost:8080")
+@CrossOrigin(origins="http://localhost:3000")
 public class SeriesServiceController {
 	
 	@Autowired SeriesService seriesServiceImpl;

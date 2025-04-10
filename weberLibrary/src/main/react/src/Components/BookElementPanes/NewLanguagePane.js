@@ -8,7 +8,7 @@ function NewLanguagePane(props) {
   const [languageSuffix, setLanguageSuffix] = useState("");
 
   const addNewLanguageToDatabase = async () => {
-    await axios.post("http://localhost:8080/languages/create", {
+    await axios.post("http://localhost:3000/languages/create", {
       language_name: languageName,
       language_suffix: languageSuffix
     }).catch(error => {

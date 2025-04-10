@@ -16,7 +16,7 @@ import jweb.coding.LibraryWebsite.Models.User;
 @RestController
 @Transactional
 @RequestMapping(path = "/users")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserServiceController {
 
 	@Autowired UserService userServiceImpl;

@@ -18,7 +18,7 @@ import jweb.coding.LibraryWebsite.Models.Publisher;
 @Transactional
 @RestController
 @RequestMapping(path="/publishers")
-@CrossOrigin(origins="http://localhost:8080")
+@CrossOrigin(origins="http://localhost:3000")
 public class PublisherServiceController {
 	
 	@Autowired PublisherService publisherServiceImpl;

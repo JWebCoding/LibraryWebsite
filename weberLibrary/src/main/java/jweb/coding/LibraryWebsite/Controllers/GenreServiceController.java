@@ -18,7 +18,7 @@ import jweb.coding.LibraryWebsite.Models.Genre;
 @Transactional
 @RestController
 @RequestMapping(path="/genres")
-@CrossOrigin(origins="http://localhost:8080")
+@CrossOrigin(origins="http://localhost:3000")
 public class GenreServiceController {
 	
 	@Autowired GenreService genreServicesImpl;

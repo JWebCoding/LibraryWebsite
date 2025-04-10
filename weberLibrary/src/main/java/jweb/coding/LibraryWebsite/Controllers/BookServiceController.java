@@ -17,7 +17,7 @@ import jweb.coding.LibraryWebsite.Models.Book;
 @RestController
 @Transactional
 @RequestMapping(path = "/books")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BookServiceController {
 	
 	@Autowired BookService bookServiceImpl;

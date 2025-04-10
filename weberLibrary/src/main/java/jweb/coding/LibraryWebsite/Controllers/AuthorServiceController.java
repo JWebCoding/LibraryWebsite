@@ -18,7 +18,7 @@ import jweb.coding.LibraryWebsite.Models.Author;
 
 @RestController
 @RequestMapping(path="/authors")
-@CrossOrigin(origins="http://localhost:8080")
+@CrossOrigin(origins="http://localhost:3000")
 @Transactional
 public class AuthorServiceController {
 	

@@ -8,7 +8,7 @@ function NewPublisherPane(props) {
   const [publisherLocation, setPublisherLocation] = useState("");
 
   const addNewPublisherToDatabase = async () => {
-    await axios.post("http://localhost:8080/publishers/create", {
+    await axios.post("http://localhost:3000/publishers/create", {
       publisher_name: publisherName,
       publisher_location: publisherLocation
     }).catch(error => {

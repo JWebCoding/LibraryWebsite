@@ -7,7 +7,7 @@ function NewSeriesPane() {
   const [seriesName, setSeriesName] = useState();
 
   const addNewSeriesToDatabase = async () => {
-    await axios.post("http://localhost:8080/series/create", {
+    await axios.post("http://localhost:3000/series/create", {
       series_name: seriesName
     }).catch(error => {
       console.error("The following error occured when adding a Series!", error);

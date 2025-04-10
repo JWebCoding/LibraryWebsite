@@ -16,7 +16,7 @@ import jweb.coding.LibraryWebsite.Interfaces.FullBookService;
 @RestController
 @Transactional(readOnly = false)
 @RequestMapping(path = "/books")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:3000")
 public class FullBookServiceController {
 
 	@Autowired
